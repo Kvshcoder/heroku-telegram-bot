@@ -22,7 +22,7 @@ tgadmin=385390931
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
 	print("welcome triggered")
-	bot.reply_to(message, "*ආයුබෝවන් හැමෝටම! මම අලුතින් පැමිණෙන සාමාජිකයන් පිළිගැනීමට බැදී සිටිමි*",parse_mode='Markdown')
+	bot.reply_to(message, "*Help and Start Triggered*",parse_mode='Markdown')
 @bot.message_handler(content_types=['new_chat_members'])
 def user_joined_greet(message):
 	print("group Joined Welcome triggered")
@@ -61,8 +61,11 @@ def user_leave_greet(message):
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+title,parse_mode='Markdown')
 		
 @bot.message_handler(func=lambda message: True)
-def echo_all(message):
-	print("echo_all triggered")
-	bot.reply_to(message, message.text)
+def check_all(message):
+	print("check_all triggered")
+     tgtext=message.text
+     splitwords=tgtext.split()
+     for i in splitwords
+	 bot.reply_to(message, i)
 
 bot.polling()
