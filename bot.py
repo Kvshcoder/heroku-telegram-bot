@@ -66,6 +66,6 @@ def check_all(message):
         tgtext=message.text
         splitwords=tgtext.split()
         for i in splitwords
-	bot.reply_to(message, i)
+         bot.reply_to(message, i)
 
 bot.polling()
