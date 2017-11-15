@@ -63,9 +63,9 @@ def user_leave_greet(message):
 @bot.message_handler(func=lambda message: True)
 def check_all(message):
 	print("check_all triggered")
-        tgtext=message.text
-        splitwords=tgtext.split()
-        for i in splitwords
-         bot.reply_to(message, i)
+	tgtext=message.text
+	splitwords=tgtext.split()
+	for i in splitwords:
+		bot.reply_to(message, i)
 
 bot.polling()
