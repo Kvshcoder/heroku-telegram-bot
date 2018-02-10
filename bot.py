@@ -61,11 +61,37 @@ def user_leave_greet(message):
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+title,parse_mode='Markdown')
 		
 @bot.message_handler(func=lambda message: True)
-def check_all(message):
-	print("check_all triggered")
-	tgtext=message.text
-	splitwords=tgtext.split()
-	for i in splitwords:
-		bot.reply_to(message, i)
+def totext_all(message):
+	print("writing to text")
+	gtext=message.text
+	gchatid =message.chat.id
+	gchat_fname = message.user.first_name
+	try:
+		gchat_lname = message.user.last_name
+	except:
+		gchat_lname = " "
+	try:
+		gchatusrname = message.user.username
+	except:
+		gfchatusrname = " "
+	try:
+		gtitle = message.chat.title
+	except:
+		gtitle = ("*its_empty*")
+	gfromusr_id	= message.user.id
+	gfromusr_fname = message.user.first_name
+	try:
+		gfromusr_lname = message.user.last_name
+	except:
+		gfromusr_lname = " "
+	try:
+		gfromusrname = message.user.username
+	except:
+		gfromusrname = " "
+	textfile=open('doctext.txt','a+')
+	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+gchatusrname+" "+str(gchat_fname)+" "+str(gchat_lname)+" "str(gfromusr_id)+" "+gfromusrname+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
+	textfile.write(dumping_data)
+	textfile.close()
+	
 
 bot.polling()
