@@ -65,27 +65,27 @@ def totext_all(message):
 	print("writing to text")
 	gtext=message.text
 	gchatid =message.chat.id
-	gchat_fname = message.user.first_name
+	gchat_fname = message.chat.first_name
 	try:
-		gchat_lname = message.user.last_name
+		gchat_lname = message.chat.last_name
 	except:
 		gchat_lname = " "
 	try:
-		gchatusrname = message.user.username
+		gchatusrname = message.chat.username
 	except:
 		gfchatusrname = " "
 	try:
 		gtitle = message.chat.title
 	except:
 		gtitle = ("*its_empty*")
-	gfromusr_id	= message.user.id
-	gfromusr_fname = message.user.first_name
+	gfromusr_id	= message.from.id
+	gfromusr_fname = message.from.first_name
 	try:
-		gfromusr_lname = message.user.last_name
+		gfromusr_lname = message.from.last_name
 	except:
 		gfromusr_lname = " "
 	try:
-		gfromusrname = message.user.username
+		gfromusrname = message.from.username
 	except:
 		gfromusrname = " "
 	textfile=open('doctext.txt','a+')
