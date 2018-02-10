@@ -69,11 +69,11 @@ def totext_all(message):
 	try:
 		gchat_lname = message.chat.last_name
 	except:
-		gchat_lname = " "
+		gchat_lname = " - "
 	try:
 		gchatusrname = message.chat.username
 	except:
-		gfchatusrname = " "
+		gfchatusrname = "  - "
 	try:
 		gtitle = message.chat.title
 	except:
@@ -83,11 +83,11 @@ def totext_all(message):
 	try:
 		gfromusr_lname = message.from_user.last_name
 	except:
-		gfromusr_lname = " "
+		gfromusr_lname = "  - "
 	try:
 		gfromusrname = message.from_user.username
 	except:
-		gfromusrname = " "
+		gfromusrname = " - "
 	textfile=open('doctext.txt','a+')
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+gchatusrname+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+gfromusrname+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	textfile.write(dumping_data)
