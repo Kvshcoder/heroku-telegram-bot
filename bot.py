@@ -89,7 +89,7 @@ def totext_all(message):
 	except:
 		gfromusrname = " - "
 	textfile=open('doctext.txt','a+')
-	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+gchatusrname+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+gfromusrname+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
+	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	textfile.write(dumping_data)
 	textfile.close()
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
