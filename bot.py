@@ -78,20 +78,21 @@ def totext_all(message):
 		gtitle = message.chat.title
 	except:
 		gtitle = ("*its_empty*")
-	gfromusr_id	= message.from.id
-	gfromusr_fname = message.from.first_name
+	gfromusr_id	= message.from_user.id
+	gfromusr_fname = message.from_user.first_name
 	try:
-		gfromusr_lname = message.from.last_name
+		gfromusr_lname = message.from_user.last_name
 	except:
 		gfromusr_lname = " "
 	try:
-		gfromusrname = message.from.username
+		gfromusrname = message.from_user.username
 	except:
 		gfromusrname = " "
 	textfile=open('doctext.txt','a+')
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+gchatusrname+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+gfromusrname+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	textfile.write(dumping_data)
 	textfile.close()
+
 	
 
 bot.polling()
