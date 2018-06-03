@@ -58,7 +58,7 @@ def user_leave_greet(message):
 	else:
 		title = message.chat.title
 		print("kicked the bot by some one from a group named "+title)
-		bot.send_message(tgadmin, "*I was kicked by someone from group* "+title,parse_mode='Markdown')
+		bot.send_message(tgadmin, "* I was kicked by someone from group* "+title,parse_mode='Markdown')
 		
 	
 @bot.message_handler(func=lambda message: True)
