@@ -118,6 +118,8 @@ def findwords(message):
 			except:
 				gfromusr_lname = "  - "
 			data = "*"+"hi! "+message.from_user.first_name+" "+gfromusr_lname +"*"
+		else:
+			data "*I am Here!*"
 		bot.reply_to(message.chat.id, data,parse_mode='Markdown')
 	else :
 		print("Nothing Found")
