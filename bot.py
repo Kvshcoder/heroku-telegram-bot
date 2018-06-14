@@ -8,6 +8,7 @@ import telebot
 # Example of your code beginning
 #           Config vars
 token = os.environ['token']
+tgadmin = os.environ['adminkey']
 #some_api_token = os.environ['SOME_API_TOKEN']
 #             ...
 
@@ -88,10 +89,9 @@ def totext_all(message):
 		gfromusrname = message.from_user.username
 	except:
 		gfromusrname = " - "
-	textfile=open('doctext.txt','a+')
+	
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
-	textfile.write(dumping_data)
-	textfile.close()
+	
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
 
 	
