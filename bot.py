@@ -100,14 +100,15 @@ def findwords(message):
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
 	if uwu_words.search(message.text):
+		print("The UwU word Found")
 		data = "*UwU*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
 	elif owo_words.search(message.text):
+		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
 	else :
-		data = "**"
-		
+		print("Nothing Found")
 		
 	
 bot.polling()
