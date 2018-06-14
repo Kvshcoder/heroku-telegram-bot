@@ -61,7 +61,7 @@ def user_leave_greet(message):
 		print("kicked the bot by some one from a group named "+message.chat.title)
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+message.chat.title,parse_mode='Markdown')
 		
-@bot.message_handler(func=lambda message: True)
+'''@bot.message_handler(func=lambda message: True)
 def totext_all(message):
 	print("writing to text")
 	gtext=message.text
@@ -93,7 +93,7 @@ def totext_all(message):
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
-	
+'''	
 @bot.message_handler(func=lambda message: True)
 def findUwU(message):
 	print("find UwU triggered!")
