@@ -2,6 +2,7 @@
 import redis
 import os
 import telebot
+import re
 # import some_api_lib
 # import ...
 
@@ -92,7 +93,10 @@ def totext_all(message):
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
-
+def findUwU(message)
+	print("find UwU triggered!")
 	
-
+	
+	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
+	
 bot.polling()
