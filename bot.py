@@ -103,7 +103,7 @@ def findwords(message):
 		data = "*UwU*"
 	elif owo_words.search(message.text):
 		data = "*OwO*"
-	else
+	else :
 		data = " "
 	bot.send_message(message.chat.id, data,parse_mode='Markdown')
 		
