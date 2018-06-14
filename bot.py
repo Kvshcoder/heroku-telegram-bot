@@ -111,7 +111,7 @@ def findwords(message):
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
 		joreh_hi= re.compile('hi',re.IGNORECASE)
-		if joreh_hi.search(message.text);
+		if joreh_hi.search(message.text):
 			print("Hi word Found")
 			try:
 				gfromusr_lname = message.from_user.last_name
