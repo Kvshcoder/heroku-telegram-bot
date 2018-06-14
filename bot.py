@@ -95,14 +95,16 @@ def totext_all(message):
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
 '''	
 @bot.message_handler(func=lambda message: True)
-def findUwU(message):
+def findwords(message):
 	print("find words triggered!")
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
 	if uwu_words.search(message.text):
 		data = "*UwU*"
-	if owo_words.search(message.text):
+	elif owo_words.search(message.text):
 		data = "*OwO*"
+	else
+		data = " "
 	bot.send_message(message.chat.id, data,parse_mode='Markdown')
 		
 	
