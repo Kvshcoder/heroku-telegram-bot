@@ -101,5 +101,12 @@ def findUwU(message):
 	if uwu_words.search(message.text):
 		uwu_data = "*UwU*"
 		bot.send_message(message.chat.id, uwu_data,parse_mode='Markdown')
-	
+		
+@bot.message_handler(func=lambda message: True)
+def findOwO(message):
+	print("find OwO triggered!")
+	owo_words= re.compile('owo',re.IGNORECASE)
+	if owo_words.search(message.text):
+		owo_data = "*OwO*"
+		bot.send_message(message.chat.id, owo_data,parse_mode='Markdown')
 bot.polling()
