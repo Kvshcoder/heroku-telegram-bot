@@ -101,7 +101,7 @@ def findUwU(message):
 	owo_words= re.compile('owo',re.IGNORECASE)
 	if uwu_words.search(message.text):
 		data = "*UwU*"
-	elseif owo_words.search(message.text):
+	if owo_words.search(message.text):
 		data = "*OwO*"
 	bot.send_message(message.chat.id, data,parse_mode='Markdown')
 		
