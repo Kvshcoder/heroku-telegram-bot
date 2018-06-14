@@ -19,7 +19,7 @@ tgadmin = os.environ['adminkey']
 bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
 #              ...
-tgadmin=385390931
+
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
 	print("welcome triggered")
