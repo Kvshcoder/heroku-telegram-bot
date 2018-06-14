@@ -99,6 +99,7 @@ def findwords(message):
 	print("find words triggered!")
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
+	joreh_words = re.compile('joreh',re.IGNORECASE)
 	if uwu_words.search(message.text):
 		print("The UwU word Found")
 		data = "*UwU*"
@@ -107,6 +108,17 @@ def findwords(message):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
+	elif joreh_words.search(message.text):
+		print("The Joreh words Found")
+		joreh_hi= re.compile('hi',re.IGNORECASE)
+		if joreh_hi.search(message.text);
+			print("Hi word Found")
+			try:
+				gfromusr_lname = message.from_user.last_name
+			except:
+				gfromusr_lname = "  - "
+			data = "*"+"hi! "+message.from_user.first_name+" "+gfromusr_lname +"*"
+		bot.reply_to(message.chat.id, data,parse_mode='Markdown')
 	else :
 		print("Nothing Found")
 		
