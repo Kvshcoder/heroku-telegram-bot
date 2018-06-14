@@ -97,7 +97,7 @@ def totext_all(message):
 @bot.message_handler(func=lambda message: True)
 def findUwU(message):
 	print("find UwU triggered!")
-	uwu_words= re.comple('uwu')
+	uwu_words= re.compile('uwu')
 	if uwu_words.search(message.text):
 		uwu_data = "*UwU*"
 		bot.send_message(message.chat.id, uwu_data,parse_mode='Markdown')
