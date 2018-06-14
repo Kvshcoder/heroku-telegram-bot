@@ -104,7 +104,7 @@ def findwords(message):
 	elif owo_words.search(message.text):
 		data = "*OwO*"
 	else :
-		data = " "
+		data = "**"
 	bot.send_message(message.chat.id, data,parse_mode='Markdown')
 		
 	
