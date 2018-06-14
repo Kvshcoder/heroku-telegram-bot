@@ -3,6 +3,8 @@ import redis
 import os
 import telebot
 import re
+from random import choice
+
 # import some_api_lib
 # import ...
 
