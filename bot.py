@@ -96,26 +96,14 @@ def totext_all(message):
 '''	
 @bot.message_handler(func=lambda message: True)
 def findUwU(message):
-	print("find UwU triggered!")
+	print("find words triggered!")
 	uwu_words= re.compile('uwu',re.IGNORECASE)
+	owo_words= re.compile('owo',re.IGNORECASE)
 	if uwu_words.search(message.text):
-		uwu_data = "*UwU*"
-		bot.send_message(message.chat.id, uwu_data,parse_mode='Markdown')
+		data = "*UwU*"
+	elseif owo_words.search(message.text):
+		data = "*OwO*"
+	bot.send_message(message.chat.id, data,parse_mode='Markdown')
 		
-@bot.message_handler(func=lambda message: True)
-def findOwO(message):
-	print("find OwO triggered!")
-	owo_words= re.compile('owo',re.IGNORECASE)
-	if owo_words.search(message.text):
-		owo_data = "*OwO*"
-		bot.send_message(message.chat.id, owo_data,parse_mode='Markdown')
-		
-@bot.message_handler(func=lambda message: True)
-def findOwO(message):
-	print("find OwO triggered!")
-	owo_words= re.compile('owo',re.IGNORECASE)
-	if owo_words.search(message.text):
-		owo_data = "*OwO*"
-		bot.send_message(message.chat.id, owo_data,parse_mode='Markdown')		
-		
+	
 bot.polling()
