@@ -95,7 +95,9 @@ def totext_all(message):
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
 def findUwU(message):
 	print("find UwU triggered!")
-	uwu_data = "*UwU*"
-	bot.send_message(tgadmin, uwu_data,parse_mode='Markdown')
+	uwu_words= re.comple('uwu')
+	if uwu_words.search(message.text):
+		uwu_data = "*UwU*"
+		bot.send_message(message.chat.id, uwu_data,parse_mode='Markdown')
 	
 bot.polling()
