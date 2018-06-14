@@ -93,6 +93,8 @@ def totext_all(message):
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
 	
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
+	
+@bot.message_handler(func=lambda message: True)
 def findUwU(message):
 	print("find UwU triggered!")
 	uwu_words= re.comple('uwu')
