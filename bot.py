@@ -118,7 +118,7 @@ def findwords(message):
 				gfromusr_lname = message.from_user.last_name
 			except:
 				gfromusr_lname = "  - "
-			joreh_hi_match = re.match(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
+			joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
 			data = "*"+" "+ str(joreh_hi_match.group(0))+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
