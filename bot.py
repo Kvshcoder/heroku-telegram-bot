@@ -119,7 +119,7 @@ def findwords(message):
 			except:
 				gfromusr_lname = "  - "
 			joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
-			data = "*"+" "+ str(joreh_hi_match(0))+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
+			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
 		bot.reply_to(message, data,parse_mode='Markdown')
