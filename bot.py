@@ -111,7 +111,7 @@ def findwords(message):
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
-		joreh_hi= re.compile('hi',re.IGNORECASE)
+		joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',re.IGNORECASE)
 		if joreh_hi.search(message.text):
 			print("Hi word Found")
 			try:
