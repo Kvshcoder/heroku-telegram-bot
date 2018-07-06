@@ -101,6 +101,7 @@ def findwords(message):
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
 	joreh_words = re.compile('joreh',re.IGNORECASE)
+	joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',re.IGNORECASE)
 	if uwu_words.search(message.text):
 		print("The UwU word Found")
 		data = "*UwU*"
@@ -111,7 +112,6 @@ def findwords(message):
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
-		joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',re.IGNORECASE)
 		if joreh_hi.search(message.text):
 			print("Hi word Found")
 			try:
