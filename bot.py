@@ -102,6 +102,11 @@ def findwords(message):
 	owo_words= re.compile('owo',re.IGNORECASE)
 	joreh_words = re.compile('joreh',re.IGNORECASE)
 	joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',re.IGNORECASE)
+	joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
+	try:
+		message_chat_type = message.chat.type
+	except:
+		message_chat_type = "-"
 	if uwu_words.search(message.text):
 		print("The UwU word Found")
 		data = "*UwU*"
@@ -110,6 +115,16 @@ def findwords(message):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
+	elif (joreh_words.search(message.text) and message_chat_type =="private"):
+		print("Hi word in priavte chat Found")
+			try:
+				gfromusr_lname = message.from_user.last_name
+			except:
+				gfromusr_lname = "  - "
+			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
+		else:
+			data = "*I am Here!*"
+		bot.reply_to(message, data,parse_mode='Markdown')
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
 		if joreh_hi.search(message.text):
@@ -118,7 +133,6 @@ def findwords(message):
 				gfromusr_lname = message.from_user.last_name
 			except:
 				gfromusr_lname = "  - "
-			joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
 			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
