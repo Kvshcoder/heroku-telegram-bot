@@ -117,13 +117,11 @@ def findwords(message):
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
 	elif (joreh_words.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
-			try:
-				gfromusr_lname = message.from_user.last_name
-			except:
-				gfromusr_lname = "  - "
-			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
-		else:
-			data = "*I am Here!*"
+		try:
+			gfromusr_lname = message.from_user.last_name
+		except:
+			gfromusr_lname = "  - "
+		data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		bot.reply_to(message, data,parse_mode='Markdown')
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
