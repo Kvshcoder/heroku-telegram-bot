@@ -115,7 +115,7 @@ def findwords(message):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
-	elif (joreh_words.search(message.text) and message_chat_type =="private"):
+	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
 			gfromusr_lname = message.from_user.last_name
