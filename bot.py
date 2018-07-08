@@ -5,9 +5,6 @@ import telebot
 import re
 import psycopg2
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # import some_api_lib
 # import ...
@@ -16,12 +13,15 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 #           Config vars
 token = os.environ['token']
 tgadmin = os.environ['adminkey']
+DATABASE_URL = os.environ['DATABASE_URL']
+
 #some_api_token = os.environ['SOME_API_TOKEN']
 #             ...
 
 # If you use redis, install this add-on https://elements.heroku.com/addons/heroku-redis
 #r = redis.from_url(os.environ.get("REDIS_URL"))
-
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+cursor = conn.cursor()
 #       Your bot code below
 bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
