@@ -3,6 +3,8 @@ import redis
 import os
 import telebot
 import re
+import psycopg2
+
 
 # import some_api_lib
 # import ...
