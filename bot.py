@@ -144,4 +144,4 @@ def findwords(message):
 		print("Nothing Found")
 		
 	
-bot.polling()
+bot.infinity_polling()
