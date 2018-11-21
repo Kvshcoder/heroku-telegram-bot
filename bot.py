@@ -28,11 +28,13 @@ bot = telebot.TeleBot(token)
 #              ...
 conn = None
 def todb(message):
+	chat_ido = int(message.chat.id)
+	msg_txto = str(message.text)
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
 		query = "INSERT INTO msg(chat_id,message) VALUES (%d, %s);"
-		data = (message.chat.id,message.text)
+		data = (chat_ido,msg_txto)
 		cur.execute(query,data)
 		conn.commit()
 	except (Exception, psycopg2.Error) as error:
@@ -42,7 +44,7 @@ def todb(message):
 			
 	finally:
 		if conn:
-			con.close()
+			conn.close()
 		
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
