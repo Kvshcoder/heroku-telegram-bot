@@ -33,7 +33,7 @@ def todb(message):
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
-		query = """INSERT INTO msg (chat_id,message) VALUES (%(int)s, %s);"""
+		query = """INSERT INTO msg (chat_id,message) VALUES (%s, %s);"""
 		data = (000000000,'data_check')
 		cur.execute(query,data)
 		conn.commit()
