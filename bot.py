@@ -29,7 +29,7 @@ bot = telebot.TeleBot(token)
 conn = None
 def todb(message):
 	chat_ido = int(message.chat.id)
-	msg_txto = str(message.text)
+	msg_txto = (message.text)
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
