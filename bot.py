@@ -20,13 +20,30 @@ DATABASE_URL = os.environ['DATABASE_URL']
 
 # If you use redis, install this add-on https://elements.heroku.com/addons/heroku-redis
 #r = redis.from_url(os.environ.get("REDIS_URL"))
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-cursor = conn.cursor()
+
 #       Your bot code below
 bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
 #              ...
-
+conn = None
+def todb(message):
+	try:
+		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+		cur = conn.cursor()
+		query = "INSERT INTO msg(chat_id,message) VALUES (%d, %s);"
+		data = (message.chat.id,message.text)
+		cur.execute(query,data)
+		conn.commit()
+	except:
+		psycopg2.DatabaseError,e:
+			if conn:
+				print('Error %s' % e)
+				bot.send_message(tgadmin,e)
+			
+	finally:
+		if conn:
+			con.close()
+		
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
 	print("welcome triggered")
@@ -102,6 +119,7 @@ def totext_all(message):
 '''	
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
+	todb(message)
 	print("find words triggered!")
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
