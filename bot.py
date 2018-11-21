@@ -5,7 +5,7 @@ import telebot
 import re
 import psycopg2
 import sys
-import datetime
+from datetime import datetime
 
 # import some_api_lib
 # import ...
@@ -30,7 +30,7 @@ conn = None
 def todb(message):
 	chat_ido = (message.chat.id)
 	msg_txto = (message.text)
-	date_time = (message.date)
+	date_time = (datetime.fromtimestamp(message.date).strftime('%Y-%m-%d %H:%M:%S'))
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
