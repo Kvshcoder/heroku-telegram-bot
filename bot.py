@@ -4,6 +4,7 @@ import os
 import telebot
 import re
 import psycopg2
+import sys
 
 
 # import some_api_lib
@@ -34,8 +35,7 @@ def todb(message):
 		data = (message.chat.id,message.text)
 		cur.execute(query,data)
 		conn.commit()
-	except:
-		psycopg2.DatabaseError,e:
+	except psycopg2.DatabaseError,e:
 			if conn:
 				print('Error %s' % e)
 				bot.send_message(tgadmin,e)
