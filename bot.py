@@ -35,10 +35,10 @@ def todb(message):
 		data = (message.chat.id,message.text)
 		cur.execute(query,data)
 		conn.commit()
-	except psycopg2.DatabaseError,e:
+	except (Exception, psycopg2.Error) as error:
 			if conn:
-				print('Error %s' % e)
-				bot.send_message(tgadmin,e)
+				print("Error %s", error)
+				bot.send_message(tgadmin,error)
 			
 	finally:
 		if conn:
