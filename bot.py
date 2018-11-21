@@ -5,7 +5,7 @@ import telebot
 import re
 import psycopg2
 import sys
-
+import datetime
 
 # import some_api_lib
 # import ...
@@ -30,11 +30,12 @@ conn = None
 def todb(message):
 	chat_ido = (message.chat.id)
 	msg_txto = (message.text)
+	date_time = (message.date)
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
-		query = """INSERT INTO msg (chat_id,message) VALUES (%s, %s);"""
-		data = (chat_ido,msg_txto)
+		query = """INSERT INTO msg (chat_id,message,date_time) VALUES (%s, %s, %s);"""
+		data = (chat_ido,msg_txto,date_time)
 		cur.execute(query,data)
 		conn.commit()
 	except (Exception, psycopg2.Error) as error:
