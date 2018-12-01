@@ -85,6 +85,7 @@ def user_joined_greet(message):
 			l_name=" "
 			newmember=str(f_name)
 		bot.send_message(message.chat.id, "`ආයුබෝවන්` " + "_"+newmember+ "_"+ "`..  ඔබව` "+ "*"+title+"*" + "` වෙත සාදරයෙන් පිළිගනිමු 🙏`",parse_mode='Markdown')
+		todbsent("`ආයුබෝවන්` " + "_"+newmember+ "_"+ "`..  ඔබව` "+ "*"+title+"*" + "` වෙත සාදරයෙන් පිළිගනිමු 🙏`",message)
 	else:
 		title = message.chat.title
 		print("added to a new group named "+title)
@@ -103,6 +104,7 @@ def user_leave_greet(message):
 			l_name=" "
 			leftmember=str(f_name)
 		bot.send_message(message.chat.id, "*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",parse_mode='Markdown')
+		todbsent("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)	
 	else:
 		print("kicked the bot by some one from a group named "+message.chat.title)
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+message.chat.title,parse_mode='Markdown')
@@ -157,10 +159,12 @@ def findwords(message):
 		print("The UwU word Found")
 		data = "*UwU*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
+		todbsent(data,message)	
 	elif owo_words.search(message.text):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
+		todbsent(data,message)	
 	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
@@ -169,6 +173,7 @@ def findwords(message):
 			gfromusr_lname = "  - "
 		data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		bot.reply_to(message, data,parse_mode='Markdown')
+		todbsent(data,message)	
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
 		if joreh_hi.search(message.text):
