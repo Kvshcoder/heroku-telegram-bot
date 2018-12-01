@@ -50,7 +50,7 @@ def todb(message):
 def todbsent(replied,message):
 	chat_ido = (message)
 	msg_txto = (replied)
-	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	try:
 		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 		cur = conn.cursor()
