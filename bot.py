@@ -47,8 +47,8 @@ def todb(message):
 		if conn:
 			conn.close()
 
-def todbsent(replied,message):
-	chat_ido = (message.from_user.id)
+def todbsent(replied,419542365):
+	chat_ido = int(419542365)
 	msg_txto = (replied)
 	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	try:
