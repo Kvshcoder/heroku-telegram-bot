@@ -46,7 +46,27 @@ def todb(message):
 	finally:
 		if conn:
 			conn.close()
-		
+
+def todbsent(replied,message):
+	chat_ido = (message.chat.id)
+	msg_txto = (replied)
+	date_time = (datetime.fromtimestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S'))
+	try:
+		conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+		cur = conn.cursor()
+		query = """INSERT INTO msg (chat_id,message,date_time,status) VALUES (%s, %s, %s, %s);"""
+		data = (chat_ido,msg_txto,date_time,"sent")
+		cur.execute(query,data)
+		conn.commit()
+	except (Exception, psycopg2.Error) as error:
+			if conn:
+				print("Error caused sending : %s", error)
+				bot.send_message(tgadmin,error)
+			
+	finally:
+		if conn:
+			conn.close()			
+			
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
 	print("welcome triggered")
@@ -160,7 +180,9 @@ def findwords(message):
 			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
+			
 		bot.reply_to(message, data,parse_mode='Markdown')
+		todbsent(message,data)
 	else :
 		print("Nothing Found")
 		
