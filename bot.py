@@ -47,8 +47,8 @@ def todb(message):
 		if conn:
 			conn.close()
 
-def todbsent(replied,419542365):
-	chat_ido = int(419542365)
+def todbsent(replied,message):
+	chat_ido = (message.chat.id)
 	msg_txto = (replied)
 	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	try:
@@ -182,7 +182,7 @@ def findwords(message):
 			data = "*I am Here!*"
 		
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(message,data)	
+		todbsent(data,message)	
 	else :
 		print("Nothing Found")
 		
