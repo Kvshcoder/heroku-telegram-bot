@@ -48,7 +48,7 @@ def todb(message):
 			conn.close()
 
 def todbsent(replied,message):
-	chat_ido = (message)
+	chat_ido = (message.chat.id)
 	msg_txto = (replied)
 	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	try:
@@ -180,9 +180,9 @@ def findwords(message):
 			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
-			
+		todbsent(message,data)	
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(message,data)
+		
 	else :
 		print("Nothing Found")
 		
