@@ -21,7 +21,7 @@ $result = pg_query($conn, "SELECT * FROM msg");
 while ($row = pg_fetch_row($result)) {
   echo "<p>" . htmlspecialchars($row[0]) . "</p>\n";
   $result2 = pg_query($conn, "SELECT". $row[0] ."FROM msg");
-  while ($column = pg_fetch_row($result2)) {
+  while ($column = pg_fetch_all($result2)) {
     echo "<p>" . htmlspecialchars($column[0]) . "</p>\n";
   }
 
