@@ -142,10 +142,6 @@ def totext_all(message):
 
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
 '''
-@bot.message_handler(content_types=['document'])
-def handle_text_doc(message)
-	todb(message)
-
 
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
