@@ -146,8 +146,12 @@ def totext_all(message):
 '''
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
+	todb(message)
 	data="https://images5.alphacoders.com/836/836124.jpg"
 	bot.send_document(message.chat.id, data)
+	todbsent(data,message)
+
+	
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
 	todb(message)
