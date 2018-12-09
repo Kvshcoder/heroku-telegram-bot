@@ -144,7 +144,10 @@ def totext_all(message):
 
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
 '''
-
+@bot.message_handler(content_types=['document'])
+def file_doc(message):
+	data="https://images5.alphacoders.com/836/836124.jpg"
+	bot.send_document(message.chat.id, data)
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
 	todb(message)
@@ -196,4 +199,4 @@ def findwords(message):
 		print("Nothing Found")
 
 
-bot.polling(True)
+bot.polling(none_stop= True)
