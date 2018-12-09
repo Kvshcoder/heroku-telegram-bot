@@ -42,7 +42,7 @@ def todb(message):
 			if conn:
 				print("Error %s", error)
 				bot.send_message(tgadmin,error)
-			
+
 	finally:
 		if conn:
 			conn.close()
@@ -62,11 +62,11 @@ def todbsent(replied,message):
 			if conn:
 				print("Error caused sending : %s", error)
 				bot.send_message(tgadmin,error)
-			
+
 	finally:
 		if conn:
-			conn.close()			
-			
+			conn.close()
+
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
 	print("welcome triggered")
@@ -90,7 +90,7 @@ def user_joined_greet(message):
 		title = message.chat.title
 		print("added to a new group named "+title)
 		bot.send_message(tgadmin, "*I was added by someone to group* "+title,parse_mode='Markdown')
-		
+
 @bot.message_handler(content_types=['left_chat_member'])
 def user_leave_greet(message):
 	if message.left_chat_member.id != bot.get_me().id:
@@ -104,11 +104,11 @@ def user_leave_greet(message):
 			l_name=" "
 			leftmember=str(f_name)
 		bot.send_message(message.chat.id, "*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",parse_mode='Markdown')
-		todbsent("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)	
+		todbsent("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)
 	else:
 		print("kicked the bot by some one from a group named "+message.chat.title)
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+message.chat.title,parse_mode='Markdown')
-		
+
 '''@bot.message_handler(func=lambda message: True)
 def totext_all(message):
 	print("writing to text")
@@ -137,15 +137,21 @@ def totext_all(message):
 		gfromusrname = message.from_user.username
 	except:
 		gfromusrname = " - "
-	
+
 	dumping_data=("| "+str(gtitle)+" "+str(gchatid)+" "+str(gchatusrname)+" "+str(gchat_fname)+" "+str(gchat_lname)+" "+str(gfromusr_id)+" "+str(gfromusrname)+" "+gfromusr_fname+" "+str(gfromusr_lname)+" \n "+gtext+" |  \n \n")
-	
+
 	bot.send_message(tgadmin, dumping_data,parse_mode='Markdown')
-'''	
+'''
+@bot.message_handler(content_types=['document'])
+def handle_text_doc(message)
+	todb(message)
+
+
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
 	todb(message)
 	print("find words triggered!")
+	bot.send_chat_action(message.chat.id, 'typing')
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
 	joreh_words = re.compile('joreh',re.IGNORECASE)
@@ -159,12 +165,12 @@ def findwords(message):
 		print("The UwU word Found")
 		data = "*UwU*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
-		todbsent(data,message)	
+		todbsent(data,message)
 	elif owo_words.search(message.text):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
-		todbsent(data,message)	
+		todbsent(data,message)
 	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
@@ -173,7 +179,7 @@ def findwords(message):
 			gfromusr_lname = "  - "
 		data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(data,message)	
+		todbsent(data,message)
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
 		if joreh_hi.search(message.text):
@@ -185,11 +191,11 @@ def findwords(message):
 			data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		else:
 			data = "*I am Here!*"
-		
+
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(data,message)	
+		todbsent(data,message)
 	else :
 		print("Nothing Found")
-		
-	
+
+
 bot.polling(True)
