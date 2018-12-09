@@ -73,6 +73,7 @@ def send_welcome(message):
 	bot.reply_to(message, "*Help and Start Triggered*",parse_mode='Markdown')
 @bot.message_handler(content_types=['new_chat_members'])
 def user_joined_greet(message):
+	bot.send_chat_action(message.chat.id, 'typing')
 	print("group Joined Welcome triggered")
 	if message.new_chat_member.id != bot.get_me().id:
 		print("group Joined Welcome triggered 2")
@@ -93,6 +94,7 @@ def user_joined_greet(message):
 
 @bot.message_handler(content_types=['left_chat_member'])
 def user_leave_greet(message):
+	bot.send_chat_action(message.chat.id, 'typing')
 	if message.left_chat_member.id != bot.get_me().id:
 		print("group left curse triggered")
 		f_name = message.left_chat_member.first_name
