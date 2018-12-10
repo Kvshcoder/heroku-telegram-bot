@@ -1,3 +1,5 @@
+import os
+import sys
 from ibm_botocore.client import Config
 import ibm_boto3
 token = os.environ['token']
