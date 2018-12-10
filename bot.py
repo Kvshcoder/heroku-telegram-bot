@@ -12,7 +12,7 @@ from datetime import datetime
 from botocore.client import Config
 import ibm_boto3
 api_key = os.environ['cos_api_key']
-service_instance_id = ' os.environ['cos_resource_instance_id']
+service_instance_id = os.environ['cos_resource_instance_id']
 auth_endpoint = 'https://iam.bluemix.net/oidc/token'
 service_endpoint = 'https://s3.us-east.objectstorage.softlayer.net'
 cos_client = ibm_boto3.client('s3',
