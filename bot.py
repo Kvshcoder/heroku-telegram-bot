@@ -28,7 +28,7 @@ print(object_list)
 def get_bucket_contents(bucket_name):
     print("Retrieving bucket contents from: {0}".format(bucket_name))
     try:
-        files = cos.Bucket(bucket_name).objects.all()
+        files = cos_client.Bucket(bucket_name).objects.all()
         for file in files:
             print("Item: {0} ({1} bytes).".format(file.key, file.size))
     except ClientError as be:
