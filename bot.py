@@ -27,8 +27,8 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
-fmibms3.get_item("kvsh","code2.txt")
-fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')
+'''fmibms3.get_item("kvsh","code2.txt")
+fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
 # -------------------------
 conn = None
 def todbtext(message):
