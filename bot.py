@@ -15,28 +15,15 @@ api_key = os.environ['cos_api_key']
 service_instance_id = os.environ['cos_resource_instance_id']
 auth_endpoint = 'https://iam.bluemix.net/oidc/token'
 service_endpoint = 'https://s3.us-east.objectstorage.softlayer.net'
-cos_client = ibm_boto3.client('s3',
+cos = ibm_boto3.resource('s3',
                       ibm_api_key_id=api_key,
                       ibm_service_instance_id=service_instance_id,
                       ibm_auth_endpoint=auth_endpoint,
                       config=Config(signature_version='oauth'),
                       endpoint_url=service_endpoint)
-Buckets_list=cos_client.list_buckets()
-print(Buckets_list)
-object_list=cos_client.list_objects(Bucket="kvsh")
-print(object_list)
-def get_bucket_contents(bucket_name):
-    print("Retrieving bucket contents from: {0}".format(bucket_name))
-    try:
-        files = cos_client.Bucket(bucket_name).objects.all()
-        for file in files:
-            print("Item: {0} ({1} bytes).".format(file.key, file.size))
-    except ClientError as be:
-        print("CLIENT ERROR: {0}\n".format(be))
-    except Exception as e:
-        print("Unable to retrieve bucket contents: {0}".format(e))
-get_bucket_contents(bucket_name="kvsh")
 # Example of your code beginning
+for bucket in cos.buckets.all():
+        print(bucket.name)
 #           Config vars
 token = os.environ['token']
 tgadmin = os.environ['adminkey']
