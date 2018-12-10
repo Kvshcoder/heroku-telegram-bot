@@ -9,7 +9,20 @@ from datetime import datetime
 
 # import some_api_lib
 # import ...
-
+from botocore.client import Config
+import ibm_boto3
+api_key = os.environ['cos_api_key']
+service_instance_id = ' os.environ['cos_resource_instance_id']
+auth_endpoint = 'https://iam.bluemix.net/oidc/token'
+service_endpoint = 'https://s3.us-east.objectstorage.softlayer.net'
+cos_client = ibm_boto3.client('s3',
+                      ibm_api_key_id=api_key,
+                      ibm_service_instance_id=service_instance_id,
+                      ibm_auth_endpoint=auth_endpoint,
+                      config=Config(signature_version='oauth'),
+                      endpoint_url=service_endpoint)
+cos_client.list_buckets()
+cos_client.list_objects(Bucket="kvsh")
 # Example of your code beginning
 #           Config vars
 token = os.environ['token']
