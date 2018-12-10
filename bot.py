@@ -28,6 +28,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 fmibms3.get_item("kvsh","code2.txt")
+fmibms3.put_item("kvsh","pics/OVR_BusanMap_004.png")
 # -------------------------
 conn = None
 def todbtext(message):
