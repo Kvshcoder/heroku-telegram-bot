@@ -2,9 +2,7 @@ import os
 import sys
 from ibm_botocore.client import Config
 import ibm_boto3
-token = os.environ['token']
-tgadmin = os.environ['adminkey']
-DATABASE_URL = os.environ['DATABASE_URL']
+
 api_key = os.environ['cos_api_key']
 service_instance_id = os.environ['cos_resource_instance_id']
 auth_endpoint = 'https://iam.bluemix.net/oidc/token'

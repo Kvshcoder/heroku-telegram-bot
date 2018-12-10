@@ -11,7 +11,7 @@ import fmibms3
 # import ...
 
 #       Your bot code below
-bot = telebot.TeleBot(token)
+
 # some_api = some_api_lib.connect(some_api_token)
 
 # Example of your code beginning
@@ -20,10 +20,12 @@ bot = telebot.TeleBot(token)
 
 #some_api_token = os.environ['SOME_API_TOKEN']
 #             ...
-
+token = os.environ['token']
+tgadmin = os.environ['adminkey']
+DATABASE_URL = os.environ['DATABASE_URL']
 # If you use redis, install this add-on https://elements.heroku.com/addons/heroku-redis
 #r = redis.from_url(os.environ.get("REDIS_URL"))
-
+bot = telebot.TeleBot(token)
 #              ...
 fmibms3.get_item("kvsh","code2.txt")
 # -------------------------
