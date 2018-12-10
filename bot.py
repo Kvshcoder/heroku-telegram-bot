@@ -10,7 +10,9 @@ import fmibms3
 # import some_api_lib
 # import ...
 
-
+#       Your bot code below
+bot = telebot.TeleBot(token)
+# some_api = some_api_lib.connect(some_api_token)
 
 # Example of your code beginning
 

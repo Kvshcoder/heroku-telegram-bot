@@ -15,9 +15,7 @@ cos = ibm_boto3.resource('s3',
                       ibm_auth_endpoint=auth_endpoint,
                       config=Config(signature_version='oauth'),
                       endpoint_url=service_endpoint)
-#       Your bot code below
-bot = telebot.TeleBot(token)
-# some_api = some_api_lib.connect(some_api_token)
+
 def get_item(bucket_name, item_name):
     print("Retrieving item from bucket: {0}, key: {1}".format(bucket_name, item_name))
     try:
