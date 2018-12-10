@@ -4,6 +4,6 @@ redis
 # If you need to specify a version
 requests==2.20.1
 psycopg2-binary
+ibm-cos-sdk
 # Or you need not a pip package, @'...' specifies git branch
 git+https://github.com/eternnoir/pyTelegramBotAPI.git@master
-
