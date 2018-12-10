@@ -9,7 +9,7 @@ from datetime import datetime
 
 # import some_api_lib
 # import ...
-from botocore.client import Config
+from ibm_botocore.client import Config
 import ibm_boto3
 api_key = os.environ['cos_api_key']
 service_instance_id = os.environ['cos_resource_instance_id']
