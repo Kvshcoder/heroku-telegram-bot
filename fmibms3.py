@@ -24,13 +24,14 @@ def get_item(bucket_name, item_name):
     except Exception as e:
         print("Unable to retrieve file contents: {0}".format(e))
 
-def put_item(bucket_name, item_name, path):
-        print("Puttting item to bucket: {0}, key: {1}".format(bucket_name, item_name))
-        try:
-            file = open(path,'rb')
-            cos.Bucket(bucket_name).put_object(key=item_name,Body=file)
-            print("File contents: {0} added".format(item_name))
-        except ClientError as be:
-            print("CLIENT ERROR: {0}\n".format(be))
-        except Exception as e:
-            print("Unable to put file contents: {0}".format(e))
+'''def put_item(bucket_name, item_name, path):
+        print("Puttting item to bucket: {0}, key: {1}".format(bucket_name, item_name))'''
+
+try:
+    file = open('BusanMap.png','rb')
+    cos.Bucket('kvsh').put_object(key='BusanMap.png', Body=file)
+    print("File contents: {0} added".format(item_name))
+except ClientError as be:
+    print("CLIENT ERROR: {0}\n".format(be))
+except Exception as e:
+    print("Unable to put file contents: {0}".format(e))
