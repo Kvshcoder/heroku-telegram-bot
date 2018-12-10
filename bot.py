@@ -40,7 +40,7 @@ bot = telebot.TeleBot(token)
 for bucket in cos.buckets.all():
     print(bucket.name)
     for obj in bucket.objects.all():
-        print("  - %s") % obj.key
+        print("  - {!s}".format(obj.key))
 #              ...
 conn = None
 def todbtext(message):
