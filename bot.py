@@ -47,7 +47,7 @@ def get_item(bucket_name, item_name):
     except Exception as e:
         print("Unable to retrieve file contents: {0}".format(e))
 #              ...
-get_item("kvsh","code.txt")
+get_item("kvsh","code2.txt")
 # -------------------------
 conn = None
 def todbtext(message):
