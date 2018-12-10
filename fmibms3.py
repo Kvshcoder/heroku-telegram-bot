@@ -30,7 +30,7 @@ def get_item(bucket_name, item_name):
 try:
     file = open('BusanMap.png','rb')
     cos.Bucket('kvsh').put_object(Key='BusanMap.png', Body=file)
-    print("File contents: {0} added".format(item_name))
+    print("File contents: {0} added".format(Key))
 except ClientError as be:
     print("CLIENT ERROR: {0}\n".format(be))
 except Exception as e:
