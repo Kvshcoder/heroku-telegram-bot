@@ -21,6 +21,10 @@ cos_client = ibm_boto3.client('s3',
                       ibm_auth_endpoint=auth_endpoint,
                       config=Config(signature_version='oauth'),
                       endpoint_url=service_endpoint)
+
+for bucket in cos_client.buckets.all():
+        print(bucket.name)
+
 cos_client.list_buckets()
 cos_client.list_objects(Bucket="kvsh")
 # Example of your code beginning
