@@ -27,7 +27,7 @@ bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
 #              ...
 conn = None
-def todb(message):
+def todbtext(message):
 	chat_ido = (message.chat.id)
 	msg_txto = (message.text)
 	date_time = (datetime.fromtimestamp(message.date).strftime('%Y-%m-%d %H:%M:%S'))
@@ -47,7 +47,7 @@ def todb(message):
 		if conn:
 			conn.close()
 
-def todbsent(replied,message):
+def todbsendtext (replied,message):
 	chat_ido = (message.chat.id)
 	msg_txto = (replied)
 	date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -86,7 +86,7 @@ def user_joined_greet(message):
 			l_name=" "
 			newmember=str(f_name)
 		bot.send_message(message.chat.id, "`ආයුබෝවන්` " + "_"+newmember+ "_"+ "`..  ඔබව` "+ "*"+title+"*" + "` වෙත සාදරයෙන් පිළිගනිමු 🙏`",parse_mode='Markdown')
-		todbsent("`ආයුබෝවන්` " + "_"+newmember+ "_"+ "`..  ඔබව` "+ "*"+title+"*" + "` වෙත සාදරයෙන් පිළිගනිමු 🙏`",message)
+		todbsendtext("`ආයුබෝවන්` " + "_"+newmember+ "_"+ "`..  ඔබව` "+ "*"+title+"*" + "` වෙත සාදරයෙන් පිළිගනිමු 🙏`",message)
 	else:
 		title = message.chat.title
 		print("added to a new group named "+title)
@@ -106,7 +106,7 @@ def user_leave_greet(message):
 			l_name=" "
 			leftmember=str(f_name)
 		bot.send_message(message.chat.id, "*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",parse_mode='Markdown')
-		todbsent("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)
+		todbsendtext("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)
 	else:
 		print("kicked the bot by some one from a group named "+message.chat.title)
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+message.chat.title,parse_mode='Markdown')
@@ -146,15 +146,15 @@ def totext_all(message):
 '''
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
-	todb(message)
+	todbtext(message)
 	data="https://images5.alphacoders.com/836/836124.jpg"
 	bot.send_document(message.chat.id, data)
-	todbsent(data,message)
+	todbsendtext(data,message)
 
-	
+
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
-	todb(message)
+	todbtext(message)
 	print("find words triggered!")
 	bot.send_chat_action(message.chat.id, 'typing')
 	uwu_words= re.compile('uwu',re.IGNORECASE)
@@ -170,12 +170,12 @@ def findwords(message):
 		print("The UwU word Found")
 		data = "*UwU*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
-		todbsent(data,message)
+		todbsendtext(data,message)
 	elif owo_words.search(message.text):
 		print("The OwO word Found")
 		data = "*OwO*"
 		bot.send_message(message.chat.id, data,parse_mode='Markdown')
-		todbsent(data,message)
+		todbsendtext(data,message)
 	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
@@ -184,7 +184,7 @@ def findwords(message):
 			gfromusr_lname = "  - "
 		data = "*"+" "+ str(joreh_hi_match[0])+"! "+message.from_user.first_name+" "+gfromusr_lname +"*"
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(data,message)
+		todbsendtext(data,message)
 	elif joreh_words.search(message.text):
 		print("The Joreh words Found")
 		if joreh_hi.search(message.text):
@@ -198,7 +198,7 @@ def findwords(message):
 			data = "*I am Here!*"
 
 		bot.reply_to(message, data,parse_mode='Markdown')
-		todbsent(data,message)
+		todbsendtext(data,message)
 	else :
 		print("Nothing Found")
 
