@@ -6,38 +6,41 @@ import re
 import psycopg2
 import sys
 from datetime import datetime
-
-# import some_api_lib
-# import ...
 from ibm_botocore.client import Config
 import ibm_boto3
+# import some_api_lib
+# import ...
+
+
+
+# Example of your code beginning
+
+#           Config vars
+token = os.environ['token']
+tgadmin = os.environ['adminkey']
+DATABASE_URL = os.environ['DATABASE_URL']
 api_key = os.environ['cos_api_key']
 service_instance_id = os.environ['cos_resource_instance_id']
 auth_endpoint = 'https://iam.bluemix.net/oidc/token'
 service_endpoint = 'https://s3.us-east.objectstorage.softlayer.net'
+#some_api_token = os.environ['SOME_API_TOKEN']
+#             ...
+
+# If you use redis, install this add-on https://elements.heroku.com/addons/heroku-redis
+#r = redis.from_url(os.environ.get("REDIS_URL"))
 cos = ibm_boto3.resource('s3',
                       ibm_api_key_id=api_key,
                       ibm_service_instance_id=service_instance_id,
                       ibm_auth_endpoint=auth_endpoint,
                       config=Config(signature_version='oauth'),
                       endpoint_url=service_endpoint)
-# Example of your code beginning
-for bucket in cos.buckets.all():
-        print(bucket.name)
-#           Config vars
-token = os.environ['token']
-tgadmin = os.environ['adminkey']
-DATABASE_URL = os.environ['DATABASE_URL']
-
-#some_api_token = os.environ['SOME_API_TOKEN']
-#             ...
-
-# If you use redis, install this add-on https://elements.heroku.com/addons/heroku-redis
-#r = redis.from_url(os.environ.get("REDIS_URL"))
-
 #       Your bot code below
 bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
+for bucket in cos.buckets.all():
+    print(bucket.name)
+    for obj in bucket.objects.all():
+        print("  - %s") % obj.key
 #              ...
 conn = None
 def todbtext(message):
