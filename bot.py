@@ -151,8 +151,8 @@ def totext_all(message):
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
 	todbtext(message)
-	data=message.document
-	bot.send_document(message.chat.id, data)
+	raw=message.document.fil_id
+	bot.send_message(message.chat.id, data)
 	todbsendtext(data,message)
 
 
