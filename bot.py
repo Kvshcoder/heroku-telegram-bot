@@ -110,7 +110,7 @@ def user_leave_greet(message):
 			l_name=" "
 			leftmember=str(f_name)
 		bot.send_message(message.chat.id, "*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",parse_mode='Markdown')
-		todbsendtext("*"+title+"*` හි සිටි `_"+leftmember+"_` වන තෝ හිටියත් එකයි! නැතත් එකයි!  👋..`",message)
+		todbsendtext("*"+title+"*` හි සිටි `_"+leftmember+"_` හිටියත් එකයි! නැතත් එකයි!  👋..`",message)
 	else:
 		print("kicked the bot by some one from a group named "+message.chat.title)
 		bot.send_message(tgadmin, "*I was kicked by someone from group* "+message.chat.title,parse_mode='Markdown')
@@ -155,7 +155,7 @@ def file_doc(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	bot.send_message(message.chat.id, "uploaded")
+	bot.send_document(message.chat.id,file)
 
 
 
