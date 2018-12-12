@@ -151,7 +151,7 @@ def totext_all(message):
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
 	todbtext(message)
-	data="https://images5.alphacoders.com/836/836124.jpg"
+	data=message.document
 	bot.send_document(message.chat.id, data)
 	todbsendtext(data,message)
 
