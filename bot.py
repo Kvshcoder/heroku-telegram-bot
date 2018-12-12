@@ -152,12 +152,11 @@ def totext_all(message):
 def file_doc(message):
 	todbtext(message)
 	raw=message.document.file_id
+	path = raw + ".txt"
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
-	with open(raw, 'wb') as new_file:
+	with open(path, 'wb') as new_file:
 		new_file.write(file)
-	with open('/tmp/1','wb') as f:
-		print (f.closed)
 	data = new_file
 	bot.send_message(message.chat.id, data)
 	todbsendtext(data,message)
