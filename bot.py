@@ -156,7 +156,8 @@ def file_doc(message):
 	file=bot.download_file(file_info.file_path)
 	with open(raw, 'wb') as new_file:
 		new_file.write(file)
-	new_file.close()
+	with open('/tmp/1','wb') as f:
+		print f.closed
 	data = new_file
 	bot.send_message(message.chat.id, data)
 	todbsendtext(data,message)
