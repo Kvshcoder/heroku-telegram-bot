@@ -152,7 +152,7 @@ def totext_all(message):
 def file_doc(message):
 	todbtext(message)
 	raw=message.document.file_id
-	bot.send_message(message.chat.id, data)
+	bot.send_message(message.chat.id, raw)
 	todbsendtext(data,message)
 
 
