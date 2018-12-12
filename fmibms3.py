@@ -14,6 +14,18 @@ cos = ibm_boto3.resource('s3',
                       config=Config(signature_version='oauth'),
                       endpoint_url=service_endpoint)
 
+def create_item(bucket_name, item_name, file_text):
+    print("Create new item: {0}".format(item_name))
+    try:
+        cos.Object(bucket_name, item_name).put(
+            Body=file_text
+        )
+        print("Item {0} created!".format(item_name))
+    except ClientError as be:
+        print("CLIENT ERROR: {0}\n".format(be))
+    except Exception as e:
+        print("Unable to create text file: {0}".format(e))
+
 def get_item(bucket_name, item_name):
     print("Retrieving item from bucket: {0}, key: {1}".format(bucket_name, item_name))
     try:

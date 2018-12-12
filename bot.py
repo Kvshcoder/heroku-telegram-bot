@@ -150,16 +150,13 @@ def totext_all(message):
 '''
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
-	todbtext(message)
 	raw=message.document.file_id
 	path = raw + ".txt"
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
-	with open(path, 'wb') as new_file:
-		new_file.write(file)
-	data = new_file
-	bot.send_message(message.chat.id, data)
-	todbsendtext(data,message)
+	fmibms3.create_item("kvsh",path,file)
+	bot.send_message(message.chat.id, "uploaded")
+
 
 
 @bot.message_handler(func=lambda message: True)
