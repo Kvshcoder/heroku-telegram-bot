@@ -27,7 +27,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
-'''fmibms3.get_item("kvsh","code2.txt")
+'''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
 fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
 # -------------------------
 conn = None
@@ -155,7 +155,8 @@ def file_doc(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	bot.send_document(message.chat.id,file)
+	data = fmibms3.get_item("kvsh","code2.txt")
+	bot.send_document(message.chat.id,data)
 
 
 
