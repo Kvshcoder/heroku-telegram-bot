@@ -39,7 +39,7 @@ def get_item(bucket_name, item_name):
         print("Unable to retrieve file contents: {0}".format(e))
 
 def put_item(bucket_name, item_name, path):
-        print("Puttting item to bucket: {0}, key: {1}".format(bucket_name, item_name))
+        print("Putting item to bucket: {0}, key: {1}".format(bucket_name, item_name))
         try:
             file = open(item_name,'rb')
             cos.Bucket(bucket_name).put_object(Key=item_name,Body=file)
@@ -48,3 +48,13 @@ def put_item(bucket_name, item_name, path):
             print("CLIENT ERROR: {0}\n".format(be))
         except Exception as e:
             print("Unable to put file contents: {0}".format(e))
+
+def download_item(bucket_name, item_name, path):
+    print("Downloading item from the bucket: {0}, key: {1}".format(bucket_name, item_name))
+    try:
+        cos.meta.client.download_file(bucket_name, item_name, path)
+        print("File contents: {0} added to {1}".format(item_name,path))
+    except ClientError as be:
+        print("CLIENT ERROR: {0}\n".format(be))
+    except Exception as e:
+        print("Unable to download file contents: {0}".format(e))
