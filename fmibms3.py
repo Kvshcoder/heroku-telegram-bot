@@ -54,7 +54,7 @@ def download_item(bucket_name, item_name, path):
     try:
         cos.meta.client.download_file(bucket_name, item_name, path)
         print("File contents: {0} added to {1}".format(item_name,path))
-        return(path)
+        return("."+path)
     except ClientError as be:
         print("CLIENT ERROR: {0}\n".format(be))
     except Exception as e:
