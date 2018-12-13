@@ -151,11 +151,14 @@ def totext_all(message):
 @bot.message_handler(content_types=['document'])
 def file_doc(message):
 	raw=message.document.file_id
-	path = raw + ".txt"
+	try:
+		path = message.document.file_name
+	except:
+		path = raw + ".nox"
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	data = fmibms3.get_item("kvsh","code2.txt")
+	data = fmibms3.get_item("kvsh",path)
 	bot.send_document(message.chat.id,data)
 
 
