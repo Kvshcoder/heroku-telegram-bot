@@ -55,7 +55,13 @@ def download_item(bucket_name, item_name, path):
         cos.meta.client.download_file(bucket_name, item_name, path)
         print("File contents: {0} added to {1}".format(item_name,path))
         return(path)
-    except ClientError as be:
-        print("CLIENT ERROR: {0}\n".format(be))
     except Exception as e:
         print("Unable to download file contents: {0}".format(e))
+
+def upload_item(bucket_name, path, item_name):
+    print("Uploading item from the bucket: {0}, key: {1}".format(bucket_name, item_name))
+    try:
+        cos.meta.client.upload_file(path, bucket_name, item_name)
+        print("File contents: {0} added to {1}".format(item_name,bucket_name))
+    except Exception as e:
+        print("Unable to Upload file contents: {0}".format(e))

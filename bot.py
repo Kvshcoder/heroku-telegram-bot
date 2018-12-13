@@ -157,8 +157,8 @@ def file_doc(message):
 		path = raw + ".nx" #no extension
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
-	fmibms3.create_item("kvsh",path,file)
-	data = fmibms3.download_item("kvsh",path,"/tmp/"+path)
+	fmibms3.upload_item("kvsh","./tmp/.keep",".keep")
+	data = fmibms3.get_item("kvsh",".keep")
 	bot.send_document(message.chat.id,data)
 
 
