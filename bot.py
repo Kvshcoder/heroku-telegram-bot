@@ -154,11 +154,11 @@ def file_doc(message):
 	try:
 		path = message.document.file_name
 	except:
-		path = raw + ".nox"
+		path = raw + ".nx" #no extension
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	data = fmibms3.get_item("kvsh",path)
+	data = fmibms3.get_item("kvsh",path,"/"+path)
 	bot.send_document(message.chat.id,data)
 
 
