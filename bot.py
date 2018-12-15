@@ -28,8 +28,8 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
-def kvp(file,data):
-	kvpy="http://kvsh443.pythonanywhere.com/?file="+file+"&data="+data
+def kvp(file):
+	kvpy="http://kvsh443.pythonanywhere.com/?file="+file
 	return urllib.request.urlopen(kvpy)
 #
 '''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
@@ -166,7 +166,7 @@ def file_doc(message):
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
 	data = fmibms3.get_item("kvsh",path)
-	datas = kvp(path,data)
+	datas = kvp(path)
 	bot.send_document(message.chat.id,datas)
 
 
