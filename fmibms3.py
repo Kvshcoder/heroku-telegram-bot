@@ -31,7 +31,7 @@ def get_item(bucket_name, item_name):
     try:
         file = cos.Object(bucket_name, item_name).get()
         data = file["Body"].read()
-        print("File Contents: {0}".format(data))
+        print("File : {0} retrieved \n".format(item_name))
         return data
     except ClientError as be:
         print("CLIENT ERROR: {0}\n".format(be))
