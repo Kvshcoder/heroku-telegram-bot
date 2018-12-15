@@ -5,6 +5,7 @@ import telebot
 import re
 import psycopg2
 import sys
+import urllib.request
 from datetime import datetime
 import fmibms3
 # import some_api_lib
@@ -27,10 +28,16 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
+def kvp(file,data)
+	kvpy="http://kvsh443.pythonanywhere.com/?file="+file+"&data="+data
+	return urllib.request.urlopen(kvpy)
+#
 '''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
 fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
 # -------------------------
 conn = None
+#
+
 def todbtext(message):
 	chat_ido = (message.chat.id)
 	msg_txto = (message.text)
@@ -159,6 +166,7 @@ def file_doc(message):
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
 	data = fmibms3.get_item("kvsh",path)
+	kvp(path,data)
 	bot.send_document(message.chat.id,data)
 
 
