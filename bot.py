@@ -29,7 +29,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
-	kvpy="http://kvsh443.pythonanywhere.com/data?file="+file
+	kvpy="http://kvsh443.pythonanywhere.com/data/?file="+file
 	return urllib.request.urlopen(kvpy)
 #
 '''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
