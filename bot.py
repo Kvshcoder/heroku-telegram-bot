@@ -31,7 +31,8 @@ bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
 	kvpy="http://kvsh443.mybluemix.net/data?file="+file
-	urllib.request.urlopen(kvpy)
+	requests.get(kvpy)
+	
 #
 def kim(file):
 	time.sleep(30)
