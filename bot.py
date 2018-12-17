@@ -5,10 +5,11 @@ import telebot
 import re
 import psycopg2
 import sys
-import urllib.request
+import requests
 import time
 from datetime import datetime
 import fmibms3
+
 # import some_api_lib
 # import ...
 
@@ -32,7 +33,7 @@ bot = telebot.TeleBot(token)
 def kvp(file):
 	kvpy="http://kvsh443.mybluemix.net/data?file="+file
 	requests.get(kvpy)
-	
+
 #
 def kim(file):
 	time.sleep(30)
