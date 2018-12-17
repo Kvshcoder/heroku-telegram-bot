@@ -6,6 +6,7 @@ import re
 import psycopg2
 import sys
 import urllib.request
+import time
 from datetime import datetime
 import fmibms3
 # import some_api_lib
@@ -29,9 +30,14 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
-	kvpy="http://kvsh443.pythonanywhere.com/data/?file="+file
+	kvpy="https://kvsh443.mybluemix.net/data?file="+file
 	return urllib.request.urlopen(kvpy)
 #
+def kim(file):
+	time.sleep(30)
+	kimy="https://kvsh443.mybluemix.net/"+file
+	return kimy
+
 '''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
 fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
 # -------------------------
@@ -167,7 +173,8 @@ def file_doc(message):
 	fmibms3.create_item("kvsh",path,file)
 	data = fmibms3.get_item("kvsh",path)
 	datas = kvp(path)
-	bot.send_document(message.chat.id,datas)
+	link = kim(path)
+	bot.send_document(message.chat.id,link)
 
 
 
