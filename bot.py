@@ -31,7 +31,7 @@ bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
-	return urllib.request.urlopen(kvpy)
+	urllib.request.urlopen(kvpy)
 #
 def kim(file):
 	time.sleep(30)
@@ -171,7 +171,6 @@ def file_doc(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	data = fmibms3.get_item("kvsh",path)
 	datas = kvp(path)
 	link = kim(path)
 	bot.send_document(message.chat.id,link)
