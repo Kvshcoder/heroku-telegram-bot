@@ -30,7 +30,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
-	kvpy="https://kvsh443.mybluemix.net/data?file="+file
+	kvpy="http://kvsh443.mybluemix.net/data?file="+file
 	urllib.request.urlopen(kvpy)
 #
 def kim(file):
