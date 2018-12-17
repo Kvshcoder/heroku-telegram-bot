@@ -171,7 +171,7 @@ def file_doc(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	datas = kvp(path)
+	kvp(path)
 	link = kim(path)
 	bot.send_document(message.chat.id,link)
 
