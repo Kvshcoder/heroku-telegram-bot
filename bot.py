@@ -31,12 +31,12 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def kvp(file):
-	kvpy="http://kvsh443.mybluemix.net/data?file="+file
+	kvpy="https://kvsh443.mybluemix.net/data?file="+file
 	requests.get(kvpy)
-
+	print("sent request to: "+kvpy)
 #
 def kim(file):
-	time.sleep(30)
+	time.sleep(1)
 	kimy="https://kvsh443.mybluemix.net/"+file
 	return kimy
 
