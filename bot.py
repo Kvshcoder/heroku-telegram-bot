@@ -7,7 +7,6 @@ import psycopg2
 import sys
 import requests
 import time
-import imghdr
 from datetime import datetime
 import fmibms3
 
