@@ -7,6 +7,7 @@ import psycopg2
 import sys
 import requests
 import time
+import imghdr
 from datetime import datetime
 import fmibms3
 
@@ -30,15 +31,15 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
-def kvp(file):
+def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
 	requests.get(kvpy)
 	print("sent request to: "+kvpy)
-#
-def kim(file):
 	time.sleep(1)
 	kimy="https://kvsh443.mybluemix.net/"+file
 	return kimy
+#
+
 
 '''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
 fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
@@ -169,15 +170,43 @@ def file_doc(message):
 	try:
 		path = message.document.file_name
 	except:
-		path = raw + ".nx" #no extension
+		path = raw + ".dnx" #doc no extension
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
-	kvp(path)
-	link = kim(path)
+	link = file_as_link(path)
 	bot.send_document(message.chat.id,link)
 
 
+@bot.message_handler(content_types=['photo','sticker'])
+def file_pic_sticker(message):
+	fileid = message.photo[-1].file_id
+	file_info=bot.get_file(fileid)
+	file=bot.download_file(file_info.file_path)
+	extension=imghdr.what(file)
+	print("Photo {0}.{1}".format(file,extension))
+	try:
+		path = fileid+"."+extension
+	except:
+		path = fileid+".pnx"
+	fmibms3.create_item("kvsh",path,file)
+	link=file_as_link(path)
+	bot.send_photo(message.chat.id,link,caption=path)
+
+@bot.message_handler(content_types=['audio'])
+def file_audio(message):
+	raw=message.audio.file_id
+	try:
+		title = message.audio.title
+		artist = message.audio.performer
+		path = title+"_"+artist
+	except:
+		path = raw + ".anx" #audio no extension
+	file_info=bot.get_file(raw)
+	file=bot.download_file(file_info.file_path)
+	fmibms3.create_item("kvsh",path,file)
+	link = file_as_link(path)
+	bot.send_audio(message.chat.id,link)
 
 @bot.message_handler(func=lambda message: True)
 def findwords(message):
