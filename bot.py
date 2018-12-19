@@ -38,10 +38,6 @@ def file_as_link(file):
 	kimy="https://kvsh443.mybluemix.net/"+file
 	return kimy
 #
-
-
-'''fmibms3.get_item("kvsh","code2.txt") #has a return value of the object
-fmibms3.put_item("kvsh",'BusanMap.png','BusanMap.png')'''
 # -------------------------
 conn = None
 #
@@ -177,9 +173,12 @@ def file_doc(message):
 	bot.send_document(message.chat.id,link)
 
 
-@bot.message_handler(content_types=['photo','sticker'])
+@bot.message_handler(content_types=['photo'])
 def file_pic_sticker(message):
-	fileid = message.photo[-1].file_id
+	try:
+		fileid = message.photo[-1].file_id
+	except:
+		fileid = message.sticker.file_id
 	file_info=bot.get_file(fileid)
 	file=bot.download_file(file_info.file_path)
 	path = fileid+".png"
