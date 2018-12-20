@@ -35,7 +35,7 @@ def file_as_link(file):
 	requests.get(kvpy)
 	print("sent request to: "+kvpy)
 	time.sleep(1)
-	kimy="https://kvsh443.mybluemix.net/"+file
+	kimy="https://kvsh443.mybluemix.net/uploads/"+file
 	return kimy
 #
 # -------------------------
@@ -175,10 +175,7 @@ def file_doc(message):
 
 @bot.message_handler(content_types=['photo'])
 def file_pic_sticker(message):
-	try:
-		fileid = message.photo[-1].file_id
-	except:
-		fileid = message.sticker.file_id
+	fileid = message.photo[-1].file_id
 	file_info=bot.get_file(fileid)
 	file=bot.download_file(file_info.file_path)
 	path = fileid+".png"
