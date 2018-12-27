@@ -36,7 +36,8 @@ def file_as_link(file):
 	print("sent request to: "+kvpy)
 	time.sleep(1)
 	kimy="https://kvsh443.mybluemix.net/"+file
-	return kimy
+	link = kimy.replaceAll(" ", "%20");
+	return link
 #
 # -------------------------
 conn = None
