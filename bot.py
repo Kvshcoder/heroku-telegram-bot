@@ -7,7 +7,7 @@ import psycopg2
 import sys
 import requests
 import time
-from urllib.parse import quote
+import urllib
 from datetime import datetime
 import fmibms3
 
@@ -33,11 +33,12 @@ bot = telebot.TeleBot(token)
 #              ...
 def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
-	requests.get(kvpy)
-	print("sent request to: "+kvpy)
+	sendlink = urllib.parse.quote_plus(kvpy)
+	requests.get(sendlink)
+	print("sent request to: "+kvpy+"via : "+sendlink)
 	time.sleep(1)
 	kimy="https://kvsh443.mybluemix.net/"+file
-	link = quote(kimy);
+	link = urllib.parse.quote_plus(kimy);
 	return link
 #
 # -------------------------
@@ -192,8 +193,8 @@ def file_audio(message):
 		title = message.audio.title
 		artist = message.audio.performer
 		path = title+"_"+artist+".mp3"
-	except:
 		path = raw + ".mp3" #audio no extension
+	except:
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
