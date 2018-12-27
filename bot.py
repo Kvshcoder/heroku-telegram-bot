@@ -189,9 +189,9 @@ def file_audio(message):
 	try:
 		title = message.audio.title
 		artist = message.audio.performer
-		path = title+"_"+artist
+		path = title+"_"+artist+".mp3"
 	except:
-		path = raw + ".anx" #audio no extension
+		path = raw + ".mp3" #audio no extension
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
