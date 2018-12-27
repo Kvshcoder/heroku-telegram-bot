@@ -7,6 +7,7 @@ import psycopg2
 import sys
 import requests
 import time
+from urllib.parse import quote
 from datetime import datetime
 import fmibms3
 
@@ -36,7 +37,7 @@ def file_as_link(file):
 	print("sent request to: "+kvpy)
 	time.sleep(1)
 	kimy="https://kvsh443.mybluemix.net/"+file
-	link = kimy.replaceAll(" ", "%20");
+	link = quote(kimy);
 	return link
 #
 # -------------------------
