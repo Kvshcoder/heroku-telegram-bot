@@ -39,7 +39,7 @@ def file_as_link(file):
 	requests.get(kvpy)
 	print("sent request to: "+kvpy+"to get File name : "+file)
 	time.sleep(1)
-	link="https://kvsh443.mybluemix.net/"+safe_file
+	link="https://kvsh443.mybluemix.net/"+file
 	return link
 #
 # -------------------------
