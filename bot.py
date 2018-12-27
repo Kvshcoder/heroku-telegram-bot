@@ -31,8 +31,10 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #r = redis.from_url(os.environ.get("REDIS_URL"))
 bot = telebot.TeleBot(token)
 #              ...
+def make_safe(thestring):
+	return urllib.parse.quote_plus(thestring)
+
 def file_as_link(file):
-	safe_file = urllib.parse.quote_plus(file)
 	kvpy="https://kvsh443.mybluemix.net/data?file="+safe_file
 	requests.get(kvpy)
 	print("sent request to: "+kvpy+"to get File name : "+file)
@@ -165,7 +167,7 @@ def totext_all(message):
 def file_doc(message):
 	raw=message.document.file_id
 	try:
-		path = message.document.file_name
+		path = make_safe(message.document.file_name)
 	except:
 		path = raw + ".dnx" #doc no extension
 	file_info=bot.get_file(raw)
@@ -191,7 +193,7 @@ def file_audio(message):
 	try:
 		title = message.audio.title
 		artist = message.audio.performer
-		path = title+"_"+artist+".mp3"
+		path = make_safe(title+"_"+artist+".mp3")
 	except:
 		path = raw + ".mp3" #audio no extension
 	file_info=bot.get_file(raw)
