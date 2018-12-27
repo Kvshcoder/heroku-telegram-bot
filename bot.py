@@ -32,13 +32,12 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def file_as_link(file):
-	kvpy="https://kvsh443.mybluemix.net/data?file="+file
-	sendlink = urllib.parse.quote_plus(kvpy)
-	requests.get(sendlink)
-	print("sent request to: "+kvpy+"via : "+sendlink)
+	safe_file = urllib.parse.quote_plus(file)
+	kvpy="https://kvsh443.mybluemix.net/data?file="+safe_file
+	requests.get(kvpy)
+	print("sent request to: "+kvpy+"to get File name : "+file)
 	time.sleep(1)
-	kimy="https://kvsh443.mybluemix.net/"+file
-	link = urllib.parse.quote_plus(kimy);
+	link="https://kvsh443.mybluemix.net/"+safe_file
 	return link
 #
 # -------------------------
