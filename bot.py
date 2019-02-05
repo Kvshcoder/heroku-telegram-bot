@@ -32,7 +32,7 @@ DATABASE_URL = os.environ['DATABASE_URL']
 bot = telebot.TeleBot(token)
 #              ...
 def make_safe(thestring):
-	return urllib.parse.quote_plus(thestring)
+	return urllib.parse.quote_plus(thestring,safe=';/?:@&=+$,')
 
 def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
