@@ -33,7 +33,7 @@ bot = telebot.TeleBot(token)
 #              ...
 def make_safe(thestring):
 	motu = replace(thestring, ' ', '_')
-	return urllib.parse.quote_plus(motu,safe=';/?:@&=+$, ')
+	return urllib.parse.quote_plus(motu,safe=';/?:@&=+$,')
 
 def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
