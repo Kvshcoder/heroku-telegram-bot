@@ -1,6 +1,6 @@
 import os
 import sys
-from ibm_botocore.client import Config
+from ibm_botocore.client import Config , ClientError
 import ibm_boto3
 
 api_key = os.environ['cos_api_key']
