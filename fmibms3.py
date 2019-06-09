@@ -5,8 +5,8 @@ import ibm_boto3
 
 api_key = os.environ['cos_api_key']
 service_instance_id = os.environ['cos_resource_instance_id']
-auth_endpoint = 'https://iam.bluemix.net/oidc/token'
-service_endpoint = 'https://s3.us-east.objectstorage.softlayer.net'
+auth_endpoint = 'https://iam.cloud.ibm.com/identity/token'
+service_endpoint = 'https://s3.us-south.cloud-object-storage.appdomain.cloud'
 cos = ibm_boto3.resource('s3',
                       ibm_api_key_id=api_key,
                       ibm_service_instance_id=service_instance_id,
