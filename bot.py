@@ -177,7 +177,7 @@ def file_doc(message):
 	fmibms3.create_item("kvsh",path,file)
 	link = file_as_link(path)
 	time.sleep(5)
-	bot.send_document(message.chat.id,link)
+	bot.send_document(message.chat.id,'https://kvsh443.mybluemix.net/AgADBQADCakxG1zMCVdjIjgXjRDyJvtW9jIABNjKw1bJl7cgWZcDAAEC.png')
 
 
 @bot.message_handler(content_types=['photo'])
