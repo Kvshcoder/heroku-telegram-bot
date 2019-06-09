@@ -174,6 +174,7 @@ def file_doc(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
+	time.sleep(10)
 	link = file_as_link(path)
 	bot.send_document(message.chat.id,link)
 
@@ -185,6 +186,7 @@ def file_pic_sticker(message):
 	file=bot.download_file(file_info.file_path)
 	path = fileid+".png"
 	fmibms3.create_item("kvsh",path,file)
+	time.sleep(10)
 	link=file_as_link(path)
 	bot.send_photo(message.chat.id,link,caption=path)
 
@@ -200,6 +202,7 @@ def file_audio(message):
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
+	time.sleep(10)
 	link = file_as_link(path)
 	bot.send_audio(message.chat.id,link)
 
