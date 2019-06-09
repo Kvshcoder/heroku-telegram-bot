@@ -186,7 +186,7 @@ def file_pic_sticker(message):
 	fileid = message.photo[-1].file_id
 	file_info=bot.get_file(fileid)
 	file=bot.download_file(file_info.file_path)
-	path = fileid+".png"
+	path = fileid+'.png'
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
 	time.sleep(5)
@@ -198,9 +198,9 @@ def file_audio(message):
 	try:
 		title = message.audio.title
 		artist = message.audio.performer
-		path = make_safe(title+"_"+artist+".mp3")
+		path = make_safe(title+'_'+artist+'.mp3')
 	except:
-		path = raw + ".mp3" #audio no extension
+		path = raw + '.mp3' #audio no extension
 	file_info=bot.get_file(raw)
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
