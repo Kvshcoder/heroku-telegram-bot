@@ -178,7 +178,7 @@ def file_doc(message):
 	link = file_as_link(path)
 	time.sleep(5)
 	print("Document Link: "+link)
-	bot.send_document(message.chat.id,link)
+	bot.send_document(message.chat.id,"https://kvsh443.mybluemix.net/manifest.yml")
 
 
 @bot.message_handler(content_types=['photo'])
