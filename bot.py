@@ -190,7 +190,7 @@ def file_pic_sticker(message):
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
 	time.sleep(5)
-	bot.send_photo(message.chat.id,link,caption=path)
+	bot.send_photo(message.chat.id,link)
 
 @bot.message_handler(content_types=['audio'])
 def file_audio(message):
