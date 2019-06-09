@@ -37,9 +37,10 @@ def make_safe(thestring):
 def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
 	requests.get(kvpy)
-	print("sent request to: "+kvpy+"to get File name : "+file)
+	print("sent request to: "+kvpy+" to get File name : "+file)
 	time.sleep(5)
-	link="https://kvsh443.mybluemix.net/"+file
+	link=str("https://kvsh443.mybluemix.net/"+file)
+	print("\n returning link: "+link)
 	return link
 	
 #
