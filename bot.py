@@ -39,7 +39,7 @@ def file_as_link(file):
 	requests.get(kvpy)
 	print("sent request to: "+kvpy+" to get File name : "+file)
 	time.sleep(5)
-	link=str("https://kvsh443.mybluemix.net/"+file)
+	link=str('https://kvsh443.mybluemix.net/'+file)
 	print("\n returning link: "+link)
 	return link
 	
@@ -178,7 +178,7 @@ def file_doc(message):
 	link = file_as_link(path)
 	time.sleep(5)
 	print("Document Link: "+link)
-	bot.send_document(message.chat.id,"https://kvsh443.mybluemix.net/manifest.yml")
+	bot.send_document(message.chat.id,link)
 
 
 @bot.message_handler(content_types=['photo'])
