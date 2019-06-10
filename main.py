@@ -178,7 +178,18 @@ def file_doc(message):
 	link = file_as_link(path)
 	time.sleep(1)
 	bot.send_document(message.chat.id,link)
-
+	
+#Disabled for Catch LOL'''
+# @bot.message_handler(content_types=['photo'])
+# def file_pic_sticker(message):
+# 	fileid = message.photo[-1].file_id
+# 	file_info=bot.get_file(fileid)
+# 	file=bot.download_file(file_info.file_path)
+# 	path = fileid+'.jpg'
+# 	fmibms3.create_item("kvsh",path,file)
+# 	link=file_as_link(path)
+# 	time.sleep(1)
+# 	bot.send_photo(message.chat.id,link)
 
 @bot.message_handler(content_types=['photo'])
 def file_pic_sticker(message):
@@ -188,8 +199,8 @@ def file_pic_sticker(message):
 	path = fileid+'.jpg'
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
-	time.sleep(1)
-	bot.send_photo(message.chat.id,link)
+	glink='https://www.google.com/searchbyimage?image_url='+link
+	bot.send_message(message.chat.id,link)
 
 @bot.message_handler(content_types=['audio'])
 def file_audio(message):
