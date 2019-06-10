@@ -180,17 +180,6 @@ def file_doc(message):
 	bot.send_document(message.chat.id,link)
 	
 #Disabled for Catch LOL'''
-# @bot.message_handler(content_types=['photo'])
-# def file_pic_sticker(message):
-# 	fileid = message.photo[-1].file_id
-# 	file_info=bot.get_file(fileid)
-# 	file=bot.download_file(file_info.file_path)
-# 	path = fileid+'.jpg'
-# 	fmibms3.create_item("kvsh",path,file)
-# 	link=file_as_link(path)
-# 	time.sleep(1)
-# 	bot.send_photo(message.chat.id,link)
-
 @bot.message_handler(content_types=['photo'])
 def file_pic_sticker(message):
 	fileid = message.photo[-1].file_id
@@ -199,10 +188,21 @@ def file_pic_sticker(message):
 	path = fileid+'.jpg'
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
-	glink='https://www.google.com/searchbyimage?image_url='+link
-	blink='https://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl='+link
-	viewlink = glink+' \n'+blink+' \n'
-	bot.send_message(message.chat.id,viewlink)
+	time.sleep(1)
+	bot.send_photo(message.chat.id,link)
+
+# @bot.message_handler(content_types=['photo'])
+# def file_pic_sticker(message):
+# 	fileid = message.photo[-1].file_id
+# 	file_info=bot.get_file(fileid)
+# 	file=bot.download_file(file_info.file_path)
+# 	path = fileid+'.jpg'
+# 	fmibms3.create_item("kvsh",path,file)
+# 	link=file_as_link(path)
+# 	glink='https://www.google.com/searchbyimage?image_url='+link
+# 	blink='https://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl='+link
+# 	viewlink = glink+' \n'+blink+' \n'
+# 	bot.send_message(message.chat.id,viewlink)
 
 @bot.message_handler(content_types=['audio'])
 def file_audio(message):
@@ -249,7 +249,7 @@ def findwords(message):
 		try:
 			gfromusr_first = message.from_user.first_name
 		except:
-			gfromusr_first= "  - "
+			gfromusr_first= " - "
 		try:
 			gfromusr_lname = message.from_user.last_name
 		except:
