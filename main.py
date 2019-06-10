@@ -201,8 +201,7 @@ def file_pic_sticker(message):
 	link=file_as_link(path)
 	glink='https://www.google.com/searchbyimage?image_url='+link
 	blink='https://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl='+link
-	ylink='https://www.yandex.com/images/search?text='+link+'&img_url='+link+'&rpt=imageview'
-	viewlink = glink+' \n'+blink+' \n'+ylink
+	viewlink = glink+' \n'+blink+' \n'
 	bot.send_message(message.chat.id,viewlink)
 
 @bot.message_handler(content_types=['audio'])
