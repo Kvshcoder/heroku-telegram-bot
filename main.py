@@ -247,6 +247,10 @@ def findwords(message):
 	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
+			gfromusr_lname = message.from_user.firstname
+		except:
+			gfromusr_lname = "  - "
+		try:
 			gfromusr_lname = message.from_user.last_name
 		except:
 			gfromusr_lname = "  - "
@@ -257,6 +261,10 @@ def findwords(message):
 		print("The Joreh words Found")
 		if joreh_hi.search(message.text):
 			print("Hi word Found")
+			try:
+				gfromusr_lname = message.from_user.firstname
+			except:
+				gfromusr_lname = "  - "
 			try:
 				gfromusr_lname = message.from_user.last_name
 			except:
