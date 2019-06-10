@@ -180,7 +180,7 @@ def file_doc(message):
 	bot.send_document(message.chat.id,link)
 
 
-@bot.message_handler(content_types=['photo, sticker'])
+@bot.message_handler(content_types=['photo','sticker'])
 def file_pic_sticker(message):
 	fileid = message.photo[-1].file_id
 	file_info=bot.get_file(fileid)
