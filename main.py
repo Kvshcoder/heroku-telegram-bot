@@ -257,5 +257,5 @@ def findwords(message):
 	else :
 		print("Nothing Found")
 
-
-bot.polling(none_stop= True)
+if _name_ = '_main_':
+	bot.polling(none_stop= True)
