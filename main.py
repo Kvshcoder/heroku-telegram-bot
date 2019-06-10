@@ -200,7 +200,10 @@ def file_pic_sticker(message):
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
 	glink='https://www.google.com/searchbyimage?image_url='+link
-	bot.send_message(message.chat.id,glink)
+	blink='https://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl='+link
+	ylink='https://www.yandex.com/images/search?text='+link+'&img_url='+link+'&rpt=imageview'
+	viewlink = glink+' \n'+blink+' \n'+ylink
+	bot.send_message(message.chat.id,viewlink)
 
 @bot.message_handler(content_types=['audio'])
 def file_audio(message):
