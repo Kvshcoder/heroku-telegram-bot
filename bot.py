@@ -38,7 +38,7 @@ def file_as_link(file):
 	kvpy="https://kvsh443.mybluemix.net/data?file="+file
 	requests.get(kvpy)
 	print("sent request to: "+kvpy+" to get File name : "+file)
-	time.sleep(5)
+	time.sleep(1)
 	link=str('https://kvsh443.mybluemix.net/'+file)
 	print("\n returning link: "+link)
 	return link
@@ -176,7 +176,7 @@ def file_doc(message):
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
 	link = file_as_link(path)
-	time.sleep(5)
+	time.sleep(1)
 	bot.send_document(message.chat.id,link)
 
 
@@ -188,7 +188,7 @@ def file_pic_sticker(message):
 	path = fileid+'.jpg'
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
-	time.sleep(5)
+	time.sleep(1)
 	bot.send_photo(message.chat.id,link)
 
 @bot.message_handler(content_types=['audio'])
@@ -204,7 +204,7 @@ def file_audio(message):
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
 	link = file_as_link(path)
-	time.sleep(5)
+	time.sleep(1)
 	bot.send_audio(message.chat.id,link)
 
 @bot.message_handler(func=lambda message: True)
