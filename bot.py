@@ -185,7 +185,7 @@ def file_pic_sticker(message):
 	fileid = message.photo[-1].file_id
 	file_info=bot.get_file(fileid)
 	file=bot.download_file(file_info.file_path)
-	path = fileid+'.png'
+	path = fileid+'.jpg'
 	fmibms3.create_item("kvsh",path,file)
 	link=file_as_link(path)
 	time.sleep(5)
