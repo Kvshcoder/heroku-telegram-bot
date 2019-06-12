@@ -228,8 +228,8 @@ def findwords(message):
 	uwu_words= re.compile('uwu',re.IGNORECASE)
 	owo_words= re.compile('owo',re.IGNORECASE)
 	joreh_words = re.compile('joreh',re.IGNORECASE)
-	joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',re.IGNORECASE)
-	joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up',message.text,re.IGNORECASE)
+	joreh_hi= re.compile('hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up|ohayou',re.IGNORECASE)
+	joreh_hi_match = re.findall(r'hi|hello|hola|bonjour|ahoy|howdy|aloha|whats up|ohayou',message.text,re.IGNORECASE)
 	try:
 		message_chat_type = message.chat.type
 	except:
@@ -247,14 +247,14 @@ def findwords(message):
 	elif (joreh_hi.search(message.text) and message_chat_type =="private"):
 		print("Hi word in priavte chat Found")
 		try:
-			gfromusr_first = message.from_user.first_name
+			chatusr_first = message.chat.first_name
 		except:
-			gfromusr_first= " - "
+			chatusr_first= " - "
 		try:
-			gfromusr_lname = message.from_user.last_name
+			chatusr_lname = message.chat.last_name
 		except:
-			gfromusr_lname = "  - "
-		data = "*"+" "+ str(joreh_hi_match[0])+"! "+gfromusr_first+" "+gfromusr_lname +"*"
+			chatusr_lname = "  - "
+		data = "* "+ str(joreh_hi_match[0])+"! "+chatusr_first+" "+chatusr_lname +"*"
 		bot.reply_to(message, data,parse_mode='Markdown')
 		todbsendtext(data,message)
 	elif joreh_words.search(message.text):
