@@ -10,6 +10,8 @@ import time
 import urllib
 from datetime import datetime
 import fmibms3
+from urllib import request
+
 
 # import some_api_lib
 # import ...
@@ -87,6 +89,28 @@ def todbsendtext (replied,message):
 	finally:
 		if conn:
 			conn.close()
+			
+@bot.message_handler(commands=['hack'])			
+def imagesteal(message):
+	try:
+		a = 1041896
+		while > 0;
+			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
+			path = str(file_"+str(a)+".jpg")
+			fmibms3.create_item("kvsh",path,url)
+			link = file_as_link(path)
+			time.sleep(1000)
+			bot.send_photo(tgadmin,link)
+			
+				   
+	except Exception as e:
+		try:
+			if e.code == 403:
+				   print("Error : - "link,e.code)
+		except Exception as ee:
+			print("ERROR : {0} \n".format(ee))
+	a-=1			   
+			
 
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
