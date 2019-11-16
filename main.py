@@ -99,15 +99,15 @@ def imagesteal(message):
 			path = str("file_"+str(a)+".jpg")
 			request.urlretrieve(url,path)
 			fmibms3.create_item("kvsh",path,url)
-			link = file_as_link(path)
+			linku = file_as_link(path)
 			time.sleep(1)
-			bot.send_photo(tgadmin,link)
+			bot.send_photo(tgadmin,linku)
 			
 				   
 	except Exception as e:
 		try:
 			if e.code == 403:
-				   print("Error : - "+link,e.code)
+				   print("Error : - "+linku,e.code)
 		except Exception as ee:
 			print("ERROR : {0} \n".format(ee))
 	a-=1			   
