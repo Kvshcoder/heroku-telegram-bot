@@ -85,7 +85,7 @@ def todbsendtext (replied,message):
 	except (Exception, psycopg2.Error) as error:
 			if conn:
 				print("Error caused sending : %s", error)
-				bot.send_message(tgadmin,error)
+				bot.send_message(-1001452022332,error)
 
 	finally:
 		if conn:
