@@ -101,12 +101,12 @@ def imagesteal(message):
 			response = requests.get(url)
 			if not response.content == "b''":
 				img = response.content
-			fmibms3.create_item("kvsh",path,img)
-			linku = file_as_link(path)
-			time.sleep(10)
-			if img is not None:
-				print(img)
-				bot.send_photo(tgadmin,img)
+				fmibms3.create_item("kvsh",path,img)
+				linku = file_as_link(path)
+				time.sleep(10)
+				if img is not None:
+					print(img)
+					bot.send_photo(tgadmin,img)
 			a-=1
 				   
 	except Exception as e:
