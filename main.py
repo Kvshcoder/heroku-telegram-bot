@@ -97,6 +97,7 @@ def imagesteal(message):
 		while a > 0:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
+			request.urlretrieve(url,path)
 			fmibms3.create_item("kvsh",path,url)
 			link = file_as_link(path)
 			time.sleep(1)
