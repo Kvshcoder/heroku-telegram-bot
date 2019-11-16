@@ -106,7 +106,7 @@ def imagesteal(message):
 	except Exception as e:
 		try:
 			if e.code == 403:
-				   print("Error : - "link,e.code)
+				   print("Error : - "+link,e.code)
 		except Exception as ee:
 			print("ERROR : {0} \n".format(ee))
 	a-=1			   
