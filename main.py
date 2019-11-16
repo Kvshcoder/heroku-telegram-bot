@@ -11,7 +11,8 @@ import urllib
 from datetime import datetime
 import fmibms3
 from urllib import request
-
+from PIL import Image
+from io import BytesIO
 
 # import some_api_lib
 # import ...
@@ -97,8 +98,9 @@ def imagesteal(message):
 		while a > 0:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
-			
-			fmibms3.create_item("kvsh",path,url)
+			response = requests.get(url)
+			img = Image.open(BytesIO(response.content))
+			fmibms3.create_item("kvsh",path,img)
 			linku = file_as_link(path)
 			time.sleep(1)
 			bot.send_photo(tgadmin,linku)
