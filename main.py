@@ -103,9 +103,9 @@ def imagesteal(message):
 			fmibms3.create_item("kvsh",path,img)
 			linku = file_as_link(path)
 			time.sleep(10)
-			bot.send_photo(tgadmin,img)
+			if img is not None:
+				bot.send_photo(tgadmin,img)
 			a-=1
-			
 				   
 	except Exception as e:
 		print("ERROR : {0} \n".format(e))
