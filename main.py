@@ -103,9 +103,9 @@ def imagesteal(message):
 				img = response.content
 				fmibms3.create_item("kvsh",path,img)
 				linku = file_as_link(path)
-				time.sleep(10)
+				time.sleep(1)
 				if img is not None:
-					print(img)
+					type(img)
 					bot.send_photo(tgadmin,img)
 			a-=1
 				   
