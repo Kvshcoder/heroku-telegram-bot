@@ -110,7 +110,8 @@ def imagesteal(message,aValue):
 				   
 	except Exception as e:
 		print("ERROR : {0} \n".format(e))
-		imagesteal(message,(a-=1))
+		a-=1
+		imagesteal(message,(a))
 	a-=1			   
 			
 
