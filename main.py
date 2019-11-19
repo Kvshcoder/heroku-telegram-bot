@@ -126,6 +126,7 @@ def imagesteal(message):
 						a-=1
 			except Exception as ee:
 				print("Error :{0}".format(ee))
+				a-=1
 		
 	a+=1			   
 			
