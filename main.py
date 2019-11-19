@@ -95,12 +95,11 @@ def todbsendtext (replied,message):
 def imagesteal(message):
 	a = 1051706
 	while a > 0:
+		path = str("file_"+str(a)+".jpg")
 		try:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
-			url2 = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
-			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
-			response2 = requests.get(url2)
+			
 			if not response.content == "b''":
 				img = response.content
 				fmibms3.create_item("kvsh",path,img)
@@ -109,19 +108,25 @@ def imagesteal(message):
 				if img is not None:
 					type(img)
 					bot.send_photo(-1001452022332,img,caption=path)
-			if not response2.content == "b''":
-				mg = response2.content
-				fmibms3.create_item("kvsh",path,mg)
-				linku = file_as_link(path)
-				time.sleep(1)
-				if mg is not None:
-					type(mg)
-					bot.send_photo(-1001452022332,mg,caption=path)
+			
 			a-=1
 				   
 		except Exception as e:
 			print("ERROR : {0} \n".format(e))
-			a-=1
+			try:
+				url2 = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
+				response2 = requests.get(url2)
+				if not response2.content == "b''":
+					mg = response2.content
+					fmibms3.create_item("kvsh",path,mg)
+					linku = file_as_link(path)
+					time.sleep(1)
+					if mg is not None:
+						type(mg)
+						bot.send_photo(-1001452022332,mg,caption=path)
+			except Exception as ee:
+				print("Error :{0}".format(ee))
+		a-=1
 	a-=1			   
 			
 
