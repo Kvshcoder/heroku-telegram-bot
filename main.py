@@ -95,6 +95,7 @@ def todbsendtext (replied,message):
 def imagesteal(message):
 	a = 1049307
 	while a > 0:
+		break
 		try:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
