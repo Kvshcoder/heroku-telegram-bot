@@ -100,7 +100,7 @@ def imagesteal(message):
 			url = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
 			path = str("file_"+str(a)+".jpg")
 			response = requests.get(url)
-			response2 = requests.get(url)
+			response2 = requests.get(url2)
 			if not response.content == "b''":
 				img = response.content
 				fmibms3.create_item("kvsh",path,img)
