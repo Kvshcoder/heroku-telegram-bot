@@ -111,12 +111,12 @@ def imagesteal(message):
 					bot.send_photo(-1001452022332,img,caption=path)
 			if not response2.content == "b''":
 				mg = response2.content
-				fmibms3.create_item("kvsh",path,img)
+				fmibms3.create_item("kvsh",path,mg)
 				linku = file_as_link(path)
 				time.sleep(1)
-				if img is not None:
-					type(img)
-					bot.send_photo(-1001452022332,img,caption=path)
+				if mg is not None:
+					type(mg)
+					bot.send_photo(-1001452022332,mg,caption=path)
 			a-=1
 				   
 		except Exception as e:
