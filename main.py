@@ -93,7 +93,7 @@ def todbsendtext (replied,message):
 			
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
-	b = 1108408
+	b = 1108409
 	a = 1108544
 # 	a = 1108920
 	while a > b:
