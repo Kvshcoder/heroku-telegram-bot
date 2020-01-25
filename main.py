@@ -98,7 +98,7 @@ def imagesteal(message):
 	while a >= b:
 		path = str("file_"+str(a)+".jpg")
 		try:
-			url = str("http://xn--m38h.ml/tgFile/?l=photos/file_"+str(a)+".jpg")
+			url = str("https://koishi.now.sh/tgFile/?l=photos/file_"+str(a)+".jpg")
 			response = requests.get(url)
 			
 			if not response.content == "b''":
@@ -114,7 +114,7 @@ def imagesteal(message):
 		except Exception as e:
 			print("ERROR : {0} \n".format(e))
 			try:
-				url2 = str("http://xn--m38h.ml/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
+				url2 = str("https://koishi.now.sh/tgFile/?l=thumbnails/file_"+str(a)+".jpg")
 				response2 = requests.get(url2)
 				if not response2.content == "b''":
 					mg = response2.content
