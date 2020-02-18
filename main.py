@@ -93,10 +93,9 @@ def todbsendtext (replied,message):
 			
 @bot.message_handler(commands=['hack'])
 def imagesteal(message):
-	#b = 198045
-	a = 196937
+	a = 198045
 	b = 197595 
-	while a <= b:
+	while a >= b:
 		path = str("file_"+str(a)+".jpg")
 		try:
 			url = str("https://koishi.now.sh/tgFile/?l=photos/file_"+str(a)+".jpg")
